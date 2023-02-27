@@ -4,6 +4,7 @@ let bodyParser=require('body-parser');
 const encoder=bodyParser.urlencoded();
 let dotenv=require('dotenv');
 dotenv.config();
+const path=require('path');
 let port=process.env.PORT||9100;
 let mysql=require('mysql2');
 
@@ -12,6 +13,7 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname+'/public'))
 
 app.set('view engine','ejs');
+app.set('views',path.join(__dirname,'views'));
 
 const con = mysql.createConnection({
   host: 'souliot.mariadb.database.azure.com',
@@ -41,7 +43,6 @@ con.query("select * from user_data where username=? and user_password=?",[userna
         }
         else{
              res.redirect("/");  
-    
         }
         res.end();
     

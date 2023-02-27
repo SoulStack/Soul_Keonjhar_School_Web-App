@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Form</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script>
+		function createForgotPasswordPage() {
+		  window.open("password.html");
+		}
+	  </script>
+</head>
+<body>
+	<p id="current-date"></p>
+	<p id="current-time"></p>
+
+	<!-- <img class="wave" src="img/wave.png"> -->
+	<div class="container">
+		<img src="img/soul_logo.jpeg" alt="soul" width="80px" height="80px">
+		<!-- <p id="demo"></p> -->
+		<div class="img">
+
+			<!-- <img src="img/sbi.png"> -->
+            <img src="https://img.freepik.com/premium-vector/cyber-security-background-green-color-open-space_99087-52.jpg?w=2000" alt="">
+		</div>
+		<div class="login-content">
+			<form action="/welcome" method="post">
+				<img src="img/avatar.svg">
+				<h3 class="title">ADMIN LOGIN</h3>
+				
+           		<div class="input-div one">
+           		   <div class="i">
+           		   		<i class="fas fa-user"></i>
+           		   </div>
+           		   <div class="div">
+           		   		<input type="text" class="input" name="username" placeholder="Username">
+           		   </div>
+           		</div>
+           		<div class="input-div pass">
+           		   <div class="i"> 
+           		    	<i class="fas fa-lock"></i>
+           		   </div>
+           		   <div class="div">
+           		
+           		    	<input type="password" class="input" name="user_password" placeholder="Password">
+            	   </div>
+            	</div>
+            	<button onclick="createForgotPasswordPage()">Forgot Password?</button>
+            	<input type="submit" class="btn" value="Login">
+            </form>
+        </div>
+    </div>
+	<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>

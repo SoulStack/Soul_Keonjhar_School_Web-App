@@ -7,6 +7,7 @@ dotenv.config();
 //const path=require('path');
 let port=process.env.PORT||9100;
 let mysql=require('mysql2');
+const bcrypt = require('bcrypt');
 
 app.use(bodyParser.json());
 
@@ -37,15 +38,16 @@ app.post("/welcome",encoder,function(req,res){
     var user_password=req.body.user_password;
 
 con.query("select * from user_data where username=? and user_password=?",[username,user_password],function(err,results,fields){
-        if(results.length>0){
-         res.render('welcome',{title:'hii user'});
+
+      if( results.length>0){
+
+         res.render('welcome');
 
         }
-        else{
-             res.redirect("/");  
-        }
+      else{
+        res.redirect('/');
+      }  
         res.end();
-    
     })
 })
 

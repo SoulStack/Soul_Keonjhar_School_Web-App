@@ -204,3 +204,7 @@ button:hover{
 .btn:hover{
 	background-position: right;
 }
+
+#error {
+  color: red;
+} 

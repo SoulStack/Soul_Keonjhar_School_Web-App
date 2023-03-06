@@ -26,7 +26,7 @@
             <img src="https://img.freepik.com/premium-vector/cyber-security-background-green-color-open-space_99087-52.jpg?w=2000" alt="">
 		</div>
 		<div class="login-content">
-			<form action="/welcome" method="post">
+			<form action="/welcome" method="post" id="form">
 				<img src="img/avatar.svg">
 				<h3 class="title">ADMIN LOGIN</h3>
 				
@@ -35,7 +35,7 @@
            		   		<i class="fas fa-user"></i>
            		   </div>
            		   <div class="div">
-           		   		<input type="text" class="input" name="username" placeholder="Username">
+           		   		<input type="text" class="input"  id="username" name="username" placeholder="Username">
            		   </div>
            		</div>
            		<div class="input-div pass">
@@ -44,11 +44,12 @@
            		   </div>
            		   <div class="div">
            		
-           		    	<input type="password" class="input" name="user_password" placeholder="Password">
+           		    	<input type="password" class="input" id="user_password" name="user_password" placeholder="Password">
             	   </div>
             	</div>
             	<button onclick="createForgotPasswordPage()">Forgot Password?</button>
             	<input type="submit" class="btn" value="Login">
+				 <p id="error"></p>
             </form>
         </div>
     </div>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/sensor1.css" </head>
+
+<body>
+    <div class="nav">
+        <img src="https://media.licdn.com/dms/image/C560BAQE7WgnBeLm3Bg/company-logo_200_200/0/1625720418766?e=2147483647&v=beta&t=KTUp1omXehd0PtjA2EDBLnVKgKIjIXW9JMvcwT67TFk"
+            width="60">
+        <a href="http://localhost:7100/school1" class="triangle-left"></a>
+        <a href="" class="triangle-right"></a>
+        <ul class="nav-links" type="none">
+            <!-- <i class="uil uil-times navCloseBtn" id="searchIcon"></i> -->
+            <li><a href="#"> Dashboard</a></li>
+            <li><a href="#"> Admin Settings </a></li>
+            <li><a href="#"> Device Management </a> </li>
+            <li><a href="#"> Alert & Notification </a></li>
+            <li><a href="#"> Help</a></li>
+            <li><a href="#">Contact</a> </li>
+
+        </ul>
+    </div>
+    <div class="menu">
+        <h2> Sensor Name= <%= data[5].device_type %>
+        </h2>
+        <h2> Sensor Id = <%= data[5].device_id %>
+        </h2>
+        <h2> Status :
+            <span id="status">
+                <%= data[5].device_heartbeat_status %>
+                    <button class="signal-button-2"></button>
+            </span>
+        </h2>
+
+
+
+    </div>
+
+    <!-- <div class="button-71">
+    <button class="reset">Sensor Reset</button>
+    <button class="update">OTA Update</button>
+
+</div> -->
+    <div class="btn">
+        <button class="button-71" role="button">Sensor Reset</button>
+        <button class="button-71" role="button">OTA Update</button>
+    </div>
+
+
+
+
+
+    <!-- <div class="Cuurent-data">
+    <h2>  current-data</h2> -->
+    <div id="chartContainer" style="height: 400px; width:850px;"></div>
+
+
+    </div>
+
+
+
+    <div class="ip">
+        <span class="ipl">
+            <h2> IP Address</h2>
+
+            <h2>
+                <%= data[5].device_ip %>
+            </h2>
+
+        </span>
+
+          <span class="ipl">
+            <h2> Mac id </h2>
+
+            <h2>
+                <%= data[0].device_mac %>
+            </h2>
+            
+        </span>
+
+    </div>
+
+    <table class="fixed_header">
+        <thead>
+            <tr>
+                <th>Temperature</th>
+                <th>Humidity</th>
+                <th>mq2</th>
+            </tr>
+        </thead>
+        <tbody class="data">
+            <tr>
+                <td>
+                    <%= data[5].device_temp %>
+                </td>
+                <td>
+                    <%= data[5].device_hum %>
+                </td>
+                <td>
+                    <%= data[5].device_mq2 %>
+                </td>
+
+            </tr>
+
+
+
+        </tbody>
+    </table>
+
+
+    </div>
+    </div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script>
+        window.onload = function () {
+
+            var dps = []; // dataPoints
+            var chart = new CanvasJS.Chart("chartContainer", {
+                title: {
+                    text: "Current  Data"
+                },
+                data: [{
+                    type: "line",
+                    dataPoints: dps
+                }]
+            });
+
+            var xVal = 0;
+            var yVal = 100;
+            var updateInterval = 1000;
+            var dataLength = 20; // number of dataPoints visible at any point
+
+            var updateChart = function (count) {
+
+                count = count || 1;
+
+                for (var j = 0; j < count; j++) {
+                    yVal = yVal + Math.round(5 + Math.random() * (-5 - 5));
+                    dps.push({
+                        x: xVal,
+                        y: yVal
+                    });
+                    xVal++;
+                }
+
+                if (dps.length > dataLength) {
+                    dps.shift();
+                }
+
+                chart.render();
+            };
+
+            updateChart(dataLength);
+            setInterval(function () { updateChart() }, updateInterval);
+
+        }
+    </script>
+
+</body>
+
+</html>

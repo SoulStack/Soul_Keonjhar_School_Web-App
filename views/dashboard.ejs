@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/dashboard.css">
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <script>
+    window.onload = function () {
+      var chart = new CanvasJS.Chart("chartContainer", {
+        title: {
+
+        },
+        axisY: [{
+          title: "Temp",
+          lineColor: "#C24642",
+          tickColor: "#C24642",
+          labelFontColor: "#C24642",
+          titleFontColor: "#C24642",
+          includeZero: true,
+          suffix: "° C"
+        },
+        {
+          title: "Humidity",
+          lineColor: "#369EAD",
+          tickColor: "#369EAD",
+          labelFontColor: "#369EAD",
+          titleFontColor: "#369EAD",
+          includeZero: true,
+          suffix: "g.m^3"
+        }],
+        axisY2: {
+          title: "Smoke",
+          lineColor: "#7F6084",
+          tickColor: "#7F6084",
+          labelFontColor: "#7F6084",
+          titleFontColor: "#7F6084",
+          includeZero: true,
+          prefix: " ",
+          suffix: "[mg/m^3]"
+        },
+        toolTip: {
+          shared: true
+        },
+        legend: {
+          cursor: "pointer",
+          itemclick: toggleDataSeries
+        },
+        data: [{
+          type: "line",
+          name: "Humidity",
+          color: "#369EAD",
+          showInLegend: true,
+          axisYIndex: 1,
+          dataPoints: [
+            { x: new Date(2017, 00, 7), y: 85.4 },
+            { x: new Date(2017, 00, 14), y: 92.7 },
+            { x: new Date(2017, 00, 21), y: 64.9 },
+            { x: new Date(2017, 00, 28), y: 58.0 },
+            { x: new Date(2017, 01, 4), y: 63.4 },
+            { x: new Date(2017, 01, 11), y: 69.9 },
+            { x: new Date(2017, 01, 18), y: 88.9 },
+            { x: new Date(2017, 01, 25), y: 66.3 },
+            { x: new Date(2017, 02, 4), y: 82.7 },
+            { x: new Date(2017, 02, 11), y: 60.2 },
+            { x: new Date(2017, 02, 18), y: 87.3 },
+            { x: new Date(2017, 02, 25), y: 98.5 }
+          ]
+        },
+        {
+          type: "line",
+          name: "Temp",
+          color: "#C24642",
+          axisYIndex: 0,
+          showInLegend: true,
+          dataPoints: [
+            { x: new Date(2017, 00, 7), y: 32.3 },
+            { x: new Date(2017, 00, 14), y: 33.9 },
+            { x: new Date(2017, 00, 21), y: 26.0 },
+            { x: new Date(2017, 00, 28), y: 15.8 },
+            { x: new Date(2017, 01, 4), y: 18.6 },
+            { x: new Date(2017, 01, 11), y: 34.6 },
+            { x: new Date(2017, 01, 18), y: 37.7 },
+            { x: new Date(2017, 01, 25), y: 24.7 },
+            { x: new Date(2017, 02, 4), y: 35.9 },
+            { x: new Date(2017, 02, 11), y: 12.8 },
+            { x: new Date(2017, 02, 18), y: 38.1 },
+            { x: new Date(2017, 02, 25), y: 42.4 }
+          ]
+        },
+        {
+          type: "line",
+          name: "Smoke",
+          color: "#7F6084",
+          axisYType: "secondary",
+          showInLegend: true,
+          dataPoints: [
+            { x: new Date(2017, 00, 7), y: 42.5 },
+            { x: new Date(2017, 00, 14), y: 44.3 },
+            { x: new Date(2017, 00, 21), y: 28.7 },
+            { x: new Date(2017, 00, 28), y: 22.5 },
+            { x: new Date(2017, 01, 4), y: 25.6 },
+            { x: new Date(2017, 01, 11), y: 45.7 },
+            { x: new Date(2017, 01, 18), y: 54.6 },
+            { x: new Date(2017, 01, 25), y: 32.0 },
+            { x: new Date(2017, 02, 4), y: 43.9 },
+            { x: new Date(2017, 02, 11), y: 26.4 },
+            { x: new Date(2017, 02, 18), y: 40.3 },
+            { x: new Date(2017, 02, 25), y: 54.2 }
+          ]
+        }]
+      });
+      chart.render();
+
+      function toggleDataSeries(e) {
+        if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+          e.dataSeries.visible = false;
+        } else {
+          e.dataSeries.visible = true;
+        }
+        e.chart.render();
+      }
+
+    }
+  </script>
+
+<script src="https://kit.fontawesome.com/0a34c633c7.js" crossorigin="anonymous"></script>
+</head>
+
+
+<body>
+  <div class="nav">
+    <img
+      src="https://media.licdn.com/dms/image/C560BAQE7WgnBeLm3Bg/company-logo_200_200/0/1625720418766?e=2147483647&v=beta&t=KTUp1omXehd0PtjA2EDBLnVKgKIjIXW9JMvcwT67TFk"
+      width="60">
+
+
+
+    <ul class="nav-links" type="none">
+      <!-- <i class="uil uil-times navCloseBtn" id="searchIcon"></i> -->
+      <li><a href="#"> Dashboard</a></li>
+      <li><a href="#"> Settings </a></li>
+      <li><a href="#"> Device Management </a> </li>
+      <li><a href="#"> Alert & Notification </a></li>
+      <li><a href="#"> Help</a></li>
+      <li><a href="http://localhost:7100/contact">Contact</a> </li>
+      
+    
+      <!--imp-->
+     <button onclick="myFunction()" style="border-radius: 50%; width: 30px;height: 30px;"> <i class="fa-solid fa-circle-half-stroke"  ></i></button>
+      <!-- -->
+      <!-- <li class="theme-container shadow-dark"> -->
+        <!-- <button onclick="myFunction()" class="theme-container shadow-dark">  -->
+        <!-- <img id="theme-icon" src="https://www.uplooder.net/img/image/2/addf703a24a12d030968858e0879b11e/moon.svg" alt="ERR">
+        </button> -->
+      <!-- </li>        -->
+    </ul>
+    <!--imp-->
+
+
+    <!---->
+  </div>
+
+
+  <a href="/sensor1" >
+
+    <div class="card">
+      <div class="container">
+
+        <span><b>DEVICE ID:</b>
+          <b>
+            <%= data[0].device_id %>
+          </b>
+        </span>
+        <p><b>DEVICE TYPE:</b></bDEVICE>
+          <b>
+            <%= data[0].device_type %>
+          </b>
+        </p>
+        <p><b>DATA:</b>
+        <table class="table">
+          <tr>
+            <th>device mq2</th>
+            <th>device_temp</th>
+            <th>device_hum</th>
+          </tr>
+          <tr>
+            <td id="mq1">
+              <%= data[0].device_mq2 %>
+            </td>
+            <td id="temp1">
+              <%= data[0].device_temp %>
+            </td>
+            <td id="humidity1">
+              <%= data[0].device_hum %>
+            </td>
+          </tr>
+        </table>
+        </p>
+        <span class="status"><b>STATUS:</b>
+          <%= data[0].device_heartbeat_status %>
+        </span>
+
+      </div>
+    </div>
+
+
+  </a>
+  <a href="/sensor2">
+    <div class="card">
+      <div class="container">
+
+        <span><b>DEVICE ID:</b>
+          <%= data[1].device_id %>
+        </span>
+        <p><b>DEVICE TYPE:</b>
+          <%= data[1].device_type %>
+        </p>
+        <p><b>DATA:</b>
+        <table class="table">
+          <tr>
+            <th>device mq2</th>
+            <th>device_temp</th>
+            <th>device_hum</th>
+          </tr>
+          <tr>
+            <td id="mq2">
+              <%= data[1].device_mq2 %>
+            </td>
+            <td id="temp2">
+              <%= data[1].device_temp %>
+            </td>
+            <td id="humidity2">
+              <%= data[1].device_hum %>
+            </td>
+          </tr>
+        </table>
+        </p>
+        <span id="status1"><b>STATUS:</b>
+          <%= data[1].device_heartbeat_status %>
+        </span>
+
+      </div>
+    </div>
+
+  </a>
+
+  <a href="/sensor3">
+    <div class="card">
+      <div class="container">
+
+        <span><b>DEVICE ID:</b>
+          <%= data[2].device_id %>
+        </span>
+        <p><b>DEVICE TYPE:</b></bDEVICE>
+          <%= data[2].device_type %>
+        </p>
+        <p><b>DATA:</b>
+        <table class="table">
+          <tr>
+            <th>device mq2</th>
+            <th>device_temp</th>
+            <th>device_hum</th>
+          </tr>
+          <tr>
+            <td id="mq3">
+              <%= data[2].device_mq2 %>
+            </td>
+            <td id="temp3">
+              <%= data[2].device_temp %>
+            </td>
+            <td id="humidity3">
+              <%= data[2].device_hum %>
+            </td>
+          </tr>
+        </table>
+        </p>
+        <span id="status2"><b>STATUS:</b>
+          <%= data[2].device_heartbeat_status %>
+        </span>
+
+      </div>
+    </div>
+
+  </a>
+
+  <a href="/sensor4" class="d-box">
+    <div class="card">
+      <div class="container">
+
+        <span><b>DEVICE ID:</b>
+          <%= data[3].device_id %>
+        </span>
+        <p><b>DEVICE TYPE:</b></bDEVICE>
+          <%= data[3].device_type %>
+        </p>
+        <p><b>DATA:</b>
+        <table class="table">
+          <tr>
+            <th>device mq2</th>
+            <th>device_temp</th>
+            <th>device_hum</th>
+          </tr>
+          <tr>
+            <td id="mq4">
+              <%= data[3].device_mq2 %>
+            </td>
+            <td id="temp4">
+              <%= data[3].device_temp %>
+            </td>
+            <td id="humidity4">
+              <%= data[3].device_hum %>
+            </td>
+          </tr>
+        </table>
+        </p>
+        <span id="status3"><b>STATUS:</b>
+          <%= data[3].device_heartbeat_status %>
+        </span>
+
+      </div>
+    </div>
+
+  </a>
+
+
+
+  <a href="/sensor5">
+    <div class="card-1">
+      <div class="container">
+
+        <span><b>DEVICE ID:</b>
+          <%= data[4].device_id %>
+        </span>
+        <p><b>DEVICE TYPE:</b></bDEVICE>
+          <%= data[4].device_type %>
+        </p>
+        <p><b>DATA:</b>
+        <table class="table">
+          <tr>
+            <th>device mq2</th>
+            <th>device_temp</th>
+            <th>device_hum</th>
+          </tr>
+          <tr>
+            <td id="mq5">
+              <%= data[4].device_mq2 %>
+            </td>
+            <td id="temp5" >
+              <%= data[4].device_temp %>
+            </td>
+            <td id="humidity5">
+              <%= data[4].device_hum %>
+            </td>
+          </tr>
+        </table>
+        </p>
+        <span id="status4"><b>STATUS:</b>
+          <%= data[4].device_heartbeat_status %>
+        </span>
+
+      </div>
+    </div>
+
+  </a>
+
+  <a href="/sensor6">
+    <div class="card">
+      <div class="container">
+
+        <span><b>DEVICE ID:</b>
+          <%= data[5].device_id %>
+        </span>
+        <p><b>DEVICE TYPE:</b></bDEVICE>
+          <%= data[5].device_type %>
+        </p>
+        <p><b>DATA:</b>
+        <table class="table">
+          <tr>
+            <th>device mq2</th>
+            <th>device_temp</th>
+            <th>device_hum</th>
+          </tr>
+          <tr>
+            <td id="mq6">
+              <%= data[5].device_mq2 %>
+            </td>
+            <td id="temp6">
+              <%= data[5].device_temp %>
+            </td>
+            <td id="humidity6">
+              <%= data[5].device_hum %>
+            </td>
+          </tr>
+        </table>
+        </p>
+        <span id="status5"><b>STATUS:</b>
+          <%= data[5].device_heartbeat_status %>
+        </span>
+
+      </div>
+    </div>
+
+  </a>
+  <div class="container-1">
+    <div class="card-2">
+      <h2 class="top">Door System Temperature and Day</h2>
+
+      <!-- <canvas id="myChart" style="width: 670px;" ></canvas> -->
+
+
+      <!-- <div id="chart_div"></div> -->
+      <!-- <div id="chart_div"></div> -->
+      <div style="height: 25vh;">
+        <canvas id="myChart"></canvas>
+      </div>
+
+
+
+
+    </div>
+    <div class="container-1">
+      <div class="card-3">
+        <h2 class="top">Sensor Analytics</h2>
+
+        <!-- <canvas id="myChart" style="width: 670px;" ></canvas> -->
+
+
+        <!-- <div id="chart_div"></div> -->
+        <!-- <div id="chart_div"></div> -->
+        <div id="chartContainer" style="height: 200px; width: 100%;"></div>
+
+
+
+
+
+      </div>
+
+
+
+      <div class="card-4" style="margin-top:0.2rem;">
+        <h2 class="top"> System Update and Reset </h2>
+
+        
+          
+            <form method="GET" action="/school1">
+              <button class="button-71" role="button">Alarm Reset</button>
+          
+            <button class="button-71" role="button">Door Reset</button>
+          
+<!-- 
+                <button class="button-71" role="button">Door Update</button>
+ 
+               <button class="button-71" role="button">Alarm Update</button> -->
+  
+           </form>
+           
+           <form method="GET" action="/school1">
+              <button class="button-71" role="button">Door Update</button>
+        
+            <button class="button-71" role="button">Alarm Update</button>
+          
+<!-- 
+                <button class="button-71" role="button">Door Update</button>
+ 
+               <button class="button-71" role="button">Alarm Update</button> -->
+  
+           </form>
+
+
+
+      
+
+      </div>
+
+
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script>
+        const ctx = document.getElementById('myChart');
+
+        new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'July', 'Aug', 'Sept', 'Nov', 'Dec'],
+            datasets: [{
+              label: '#No of Door Opened  ',
+              data: [12, 19, 3, 5, 2, 3, 7, 9, 12, 14, 12],
+              borderWidth: 1
+
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            },
+            maintainAspectRatio: false
+          }
+        });
+      </script>
+      <script>
+        function myFunction() {
+          var element = document.body;
+          element.classList.toggle("dark-mode");
+        }
+      </script>
+      <script src="js/script.js"></script>
+  <!-- <script>
+    document.body.style="background-color: var(--bs-dark);transition: 0.5s;"
+const sun = "https://www.uplooder.net/img/image/55/7aa9993fc291bc170abea048589896cf/sun.svg";
+const moon = "https://www.uplooder.net/img/image/2/addf703a24a12d030968858e0879b11e/moon.svg"
+
+var theme = "dark";
+  const root = document.querySelector(":root");
+  const container = document.getElementsByClassName("theme-container")[0];
+  const themeIcon = document.getElementById("theme-icon");
+  container.addEventListener("click", setTheme);
+  function setTheme() {
+    switch (theme) {
+      case "dark":
+        setLight();
+        theme = "light";
+        break;
+      case "light":
+        setDark();
+        theme = "dark";
+        break;
+    }
+  }
+  function setLight() {
+    root.style.setProperty(
+      "--bs-dark",
+      "linear-gradient(318.32deg, #c3d1e4 0%, #dde7f3 55%, #d4e0ed 100%)"
+    );
+    container.classList.remove("shadow-dark");
+    setTimeout(() => {
+      container.classList.add("shadow-light");
+      themeIcon.classList.remove("change");
+    }, 300);
+    themeIcon.classList.add("change");
+    themeIcon.src = sun;
+  }
+  function setDark() {
+    root.style.setProperty("--bs-dark", "#212529");
+    container.classList.remove("shadow-light");
+    setTimeout(() => {
+      container.classList.add("shadow-dark");
+      themeIcon.classList.remove("change");
+    }, 300);
+    themeIcon.classList.add("change");
+    themeIcon.src = moon;
+  }
+  </script> -->
+
+<!-- 1st sensor update in second -->
+
+  <script>
+    // Update table with new temperature data
+   
+    function updateTable() {
+      // Get current Indian Standard Time (IST)
+      const ist = new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' });
+      const time = new Date(ist).toLocaleTimeString();
+
+      // Simulate new temperature data
+      let temp= ' <%= data[0].device_temp %>';
+;
+      let humidity='  <%= data[0].device_hum%>';
+      let mq ='    <%= data[0].device_mq2 %>';
+
+      // Update table with new data
+      // document.getElementById('time').innerHTML = time;
+      document.getElementById('temp1').innerHTML = `${temp}&deg;C`;
+      document.getElementById('humidity1').innerHTML = `${humidity}%`;
+      document.getElementById('mq1').innerHTML = `${mq}&nbsp;mq`;
+    }
+
+    // Call updateTable function every second
+    setInterval(updateTable, 1000);
+  
+  </script>
+
+<!-- 2nd sensor update in second -->
+  <script>
+    // Update table with new temperature data
+   
+    function updateTable() {
+      // Get current Indian Standard Time (IST)
+      const ist = new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' });
+      const time = new Date(ist).toLocaleTimeString();
+
+      // Simulate new temperature data
+      let temp= ' <%= data[1].device_temp %>';
+;
+      let humidity='  <%= data[1].device_hum %>';
+      let mq ='    <%= data[1].device_mq2 %>';
+
+      // Update table with new data
+      // document.getElementById('time').innerHTML = time;
+      document.getElementById('temp2').innerHTML = `${temp}&deg;C`;
+      document.getElementById('humidity2').innerHTML = `${humidity}%`;
+      document.getElementById('mq2').innerHTML = `${mq}&nbsp;mq`;
+    }
+
+    // Call updateTable function every second
+    setInterval(updateTable, 1000);
+  
+  </script>
+
+<!-- 3rd sensor update in second -->
+  <script>
+    // Update table with new temperature data
+   
+    function updateTable() {
+      // Get current Indian Standard Time (IST)
+      const ist = new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' });
+      const time = new Date(ist).toLocaleTimeString();
+
+      // Simulate new temperature data
+      let temp= ' <%= data[2].device_temp %>';
+;
+      let humidity='  <%= data[2].device_hum %>';
+      let mq ='    <%= data[2].device_mq2 %>';
+
+      // Update table with new data
+      // document.getElementById('time').innerHTML = time;
+      document.getElementById('temp3').innerHTML = `${temp}&deg;C`;
+      document.getElementById('humidity3').innerHTML = `${humidity}%`;
+      document.getElementById('mq3').innerHTML = `${mq}&nbsp;mq`;
+    }
+
+    // Call updateTable function every second
+    setInterval(updateTable, 1000);
+  
+  </script>
+
+<!-- 4th sensor update in second -->
+  <script>
+    // Update table with new temperature data
+   
+    function updateTable() {
+      // Get current Indian Standard Time (IST)
+      const ist = new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' });
+      const time = new Date(ist).toLocaleTimeString();
+
+      // Simulate new temperature data
+      let temp= ' <%= data[3].device_temp %>';
+;
+      let humidity='  <%= data[3].device_hum %>';
+      let mq ='    <%= data[3].device_mq2 %>';
+
+      // Update table with new data
+      // document.getElementById('time').innerHTML = time;
+      document.getElementById('temp4').innerHTML = `${temp}&deg;C`;
+      document.getElementById('humidity4').innerHTML = `${humidity}%`;
+      document.getElementById('mq4').innerHTML = `${mq}&nbsp;mq`;
+    }
+
+    // Call updateTable function every second
+    setInterval(updateTable, 1000);
+  
+  </script>
+
+<!-- 5th sensor update in second -->
+  <script>
+    // Update table with new temperature data
+   
+    function updateTable() {
+      // Get current Indian Standard Time (IST)
+      const ist = new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' });
+      const time = new Date(ist).toLocaleTimeString();
+
+      // Simulate new temperature data
+      let temp= ' <%= data[4].device_temp %>';
+;
+      let humidity='  <%= data[4].device_hum %>';
+      let mq ='    <%= data[4].device_mq2 %>';
+
+      // Update table with new data
+      // document.getElementById('time').innerHTML = time;
+      document.getElementById('temp5').innerHTML = `${temp}&deg;C`;
+      document.getElementById('humidity5').innerHTML = `${humidity}%`;
+      document.getElementById('mq5').innerHTML = `${mq}&nbsp;mq`;
+    }
+
+    // Call updateTable function every second
+    setInterval(updateTable, 1000);
+  
+  </script>
+  
+  <!-- 6th sensor update in second -->
+  <script>
+    // Update table with new temperature data
+   
+    function updateTable() {
+      // Get current Indian Standard Time (IST)
+      const ist = new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' });
+      const time = new Date(ist).toLocaleTimeString();
+
+      // Simulate new temperature data
+      let temp= ' <%= data[5].device_temp %>';
+;
+      let humidity='  <%= data[5].device_hum %>';
+      let mq ='    <%= data[5].device_mq2 %>';
+
+      // Update table with new data
+      // document.getElementById('time').innerHTML = time;
+      document.getElementById('temp6').innerHTML = `${temp}&deg;C`;
+      document.getElementById('humidity6').innerHTML = `${humidity}%`;
+      document.getElementById('mq6').innerHTML = `${mq}&nbsp;mq`;
+    }
+
+    // Call updateTable function every second
+    setInterval(updateTable, 1000);
+  
+  </script>
+
+</body>
+
+</html>

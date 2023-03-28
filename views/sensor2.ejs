@@ -12,7 +12,7 @@
     <div class="nav">
         <img src="https://media.licdn.com/dms/image/C560BAQE7WgnBeLm3Bg/company-logo_200_200/0/1625720418766?e=2147483647&v=beta&t=KTUp1omXehd0PtjA2EDBLnVKgKIjIXW9JMvcwT67TFk"
             width="60">
-        <a href="http://localhost:7100/school1" class="triangle-left"></a>
+        <a href="http://localhost:7100/school/?scID=<%=sch%>"class="triangle-left"></a>
         <a href="" class="triangle-right"></a>
         <ul class="nav-links" type="none">
             <!-- <i class="uil uil-times navCloseBtn" id="searchIcon"></i> -->
@@ -25,14 +25,15 @@
 
         </ul>
     </div>
+<% if(data ) { %>
     <div class="menu">
-        <h2> Sensor Name= <%= data[1].device_type %>
+        <h2> Sensor Name= <%= data[0].device_type %>
         </h2>
-        <h2> Sensor Id = <%= data[1].device_id %>
+        <h2> Sensor Id = <%= data[0].device_id %>
         </h2>
         <h2> Status :
             <span id="status">
-                <%= data[1].device_heartbeat_status %>
+                <%= data[0].device_heartbeat_status %>
                     <button class="signal-button-1"></button>
             </span>
         </h2>
@@ -41,26 +42,65 @@
 
     </div>
 
-    <!-- <div class="button-71">
-    <button class="reset">Sensor Reset</button>
-    <button class="update">OTA Update</button>
 
-</div> -->
-    <div class="btn">
-        <button class="button-71" role="button">Sensor Reset</button>
-        <button class="button-71" role="button">OTA Update</button>
+    <div class="card-2">
+        <h2 class="top">Humidity</h2>
+
+        <div class="graph-3">
+            <canvas id="myChart3"></canvas>
+          </div>
+    </div>
+
     </div>
 
 
 
 
+    <div class="card-2">
+        <h2 class="top">Temperature</h2>
 
-    <!-- <div class="Cuurent-data">
-    <h2>  current-data</h2> -->
-    <div id="chartContainer" style="height: 400px; width:850px;"></div>
-
+        
+        <div class="graph-1">
+            <canvas id="myChart"></canvas>
+          </div>
+        <!-- </div> -->
 
     </div>
+    <div class="card-4">
+        <h2 class="top">Smoke</h2>
+
+        
+        <div class="graph-2">
+            <canvas id="myChart2"></canvas>
+          </div>
+            </div>
+        <!-- </div> -->
+
+    </div>
+
+    
+
+
+
+
+
+
+
+
+   
+    <div class="card-5">
+        <div class="btn">
+            <button class="button-71" role="button">Sensor Update</button>
+            <button class="button-71" role="button">Sensor  Reset</button>
+        </div>
+        <div class="btn">
+            <button class="button-71" role="button">OTA &nbsp;&nbsp; Update</button>
+            <button class="button-71" role="button">OTA &nbsp; &nbsp;  Reset</button>
+        </div>
+
+    </div>
+
+
 
 
 
@@ -69,96 +109,196 @@
             <h2> IP Address</h2>
 
             <h2>
-                <%= data[1].device_ip %>
+                <%= data[0].device_ip %>
             </h2>
 
         </span>
-
-          <span class="ipl">
+        <span class="ipl">
             <h2> Mac id </h2>
 
             <h2>
                 <%= data[0].device_mac %>
             </h2>
-            
+
         </span>
 
     </div>
 
-    <table class="fixed_header">
-        <thead>
-            <tr>
-                <th>Temperature</th>
-                <th>Humidity</th>
-                <th>mq2</th>
-            </tr>
-        </thead>
-        <tbody class="data">
-            <tr>
-                <td>
-                    <%= data[1].device_temp %>
-                </td>
-                <td>
-                    <%= data[1].device_hum %>
-                </td>
-                <td>
-                    <%= data[1].device_mq2 %>
-                </td>
-
-            </tr>
-
-
-
-        </tbody>
-    </table>
-
-
     </div>
     </div>
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<% } %>
+    <div>
+        <%var c=j%>
+         <%var d=k%></div>
+         <div>
+          <%var sm=s%>
+           <%var ts=e%></div>
+           <div>
+            <%var hm=h%>
+             <%var th=m%></div>
+   
+      
+   
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        window.onload = function () {
+     
+     
+     console.log('<%=c[0]%>');
+     
+    
+    
+    //  const xlabels=[]
+    // const ytemps=[]
+    // for(var i=0;i<=a.length;i++){
+    //   xlabels.push(a[i])
+    // }
+    // for(var i=0;i<b.length;i++){
+    //   ytemps.push(b[i])
+    // }
 
-            var dps = []; // dataPoints
-            var chart = new CanvasJS.Chart("chartContainer", {
-                title: {
-                    text: "Current  Data"
-                },
-                data: [{
-                    type: "line",
-                    dataPoints: dps
-                }]
-            });
+    const ctx2 = document.getElementById('myChart2');
+   
+    let chart2 = new Chart(ctx2, {
+        type: 'line',
+        data: {
+          labels: [],
+          datasets: [{
+            label: 'smoke',
+            data: [],
+            borderWidth: 1
+          }]
+        },
+       
+      });
+   
+     function chartIt2(){
+      console.log('<%=typeof(sm.slice(-1)[0])%>');
+      console.log('<%=ts.slice(-1)%>')
+      console.log('<%= sm.slice(-1) %>')
+      chart2.data.labels = ['<%=ts[ts.length-10]%>',
+      '<%=ts[ts.length-9]%>',
+      '<%=ts[ts.length-8]%>',
+      '<%=ts[ts.length-7]%>',
+      '<%=ts[ts.length-6]%>',
+      '<%=ts[ts.length-5]%>',
+      '<%=ts[ts.length-4]%>',
+      '<%=ts[ts.length-3]%>',
+      '<%=ts[ts.length-2]%>',
+      '<%=ts.slice(-1)%>'] ;
+      chart2.data.datasets[0].data = ['<%=sm[sm.length-10]%>',
+      '<%=sm[sm.length-9]%>',
+      '<%=sm[sm.length-8]%>',
+      '<%=sm[sm.length-7]%>',
+      '<%=sm[sm.length-6]%>',
+      '<%=sm[sm.length-5]%>',
+      '<%=sm[sm.length-4]%>',
+      '<%=sm[sm.length-3]%>',
+      '<%=sm[sm.length-2]%>',
+      '<%=sm.slice(-1)%>'];
+      chart2.update();
+    }
+    // chart1.data.labels = b[0];
+    //                 chart1.data.datasets[0].data = a[0];
+    //                 chart1.update();
+    chartIt2(chart2);
 
-            var xVal = 0;
-            var yVal = 100;
-            var updateInterval = 1000;
-            var dataLength = 20; // number of dataPoints visible at any point
 
-            var updateChart = function (count) {
+    //chart 3
 
-                count = count || 1;
+    const ctx3 = document.getElementById('myChart3');
+   
+    let chart3 = new Chart(ctx3, {
+        type: 'line',
+        data: {
+          labels: [],
+          datasets: [{
+            label: 'Humidity',
+            data: [],
+            borderWidth: 1
+          }]
+        },
+       
+      });
+   
+     function chartIt3(){
+      console.log('<%=typeof(hm.slice(-1)[0])%>');
+      console.log('<%=th.slice(-1)%>')
+      console.log('<%= hm.slice(-1) %>')
+      chart3.data.labels = ['<%=th[th.length-10]%>',
+      '<%=th[th.length-9]%>',
+      '<%=th[th.length-8]%>',
+      '<%=th[th.length-7]%>',
+      '<%=th[th.length-6]%>',
+      '<%=th[th.length-5]%>',
+      '<%=th[th.length-4]%>',
+      '<%=th[th.length-3]%>',
+      '<%=th[th.length-2]%>',
+      '<%=th.slice(-1)%>'] ;
+      chart3.data.datasets[0].data = ['<%=hm[hm.length-10]%>',
+      '<%=hm[hm.length-9]%>',
+      '<%=hm[hm.length-8]%>',
+      '<%=hm[hm.length-7]%>',
+      '<%=hm[hm.length-6]%>',
+      '<%=hm[hm.length-5]%>',
+      '<%=hm[hm.length-4]%>',
+      '<%=hm[hm.length-3]%>',
+      '<%=hm[hm.length-2]%>',
+      '<%=hm.slice(-1)%>'];
+      chart3.update();
+    }
+    // chart1.data.labels = b[0];
+    //                 chart1.data.datasets[0].data = a[0];
+    //                 chart1.update();
+    chartIt3(chart3);
+    //chart 3
+    const ctx = document.getElementById('myChart');
+   
+    let chart1 = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: [],
+          datasets: [{
+            label: 'Temperature Usage',
+            data: [],
+            borderWidth: 1
+          }]
+        },
+       
+      });
+   
+     function chartIt(){
+      console.log('<%=typeof(c.slice(-1)[0])%>');
+      console.log('<%=d.slice(-1)%>')
+      console.log('<%= c.slice(-1) %>')
+      chart1.data.labels = ['<%=d[d.length-10]%>',
+      '<%=d[d.length-9]%>',
+      '<%=d[d.length-8]%>',
+      '<%=d[d.length-7]%>',
+      '<%=d[d.length-6]%>',
+      '<%=d[d.length-5]%>',
+      '<%=d[d.length-4]%>',
+      '<%=d[d.length-3]%>',
+      '<%=d[d.length-2]%>',
+      '<%=d.slice(-1)%>'] ;
+      chart1.data.datasets[0].data = ['<%=c[c.length-10]%>',
+      '<%=c[c.length-9]%>',
+      '<%=c[c.length-8]%>',
+      '<%=c[c.length-7]%>',
+      '<%=c[c.length-6]%>',
+      '<%=c[c.length-5]%>',
+      '<%=c[c.length-4]%>',
+      '<%=c[c.length-3]%>',
+      '<%=c[c.length-2]%>',
+      '<%=c.slice(-1)%>'];
+      chart1.update();
+    }
+    // chart1.data.labels = b[0];
+    //                 chart1.data.datasets[0].data = a[0];
+    //                 chart1.update();
+    chartIt(chart1);
 
-                for (var j = 0; j < count; j++) {
-                    yVal = yVal + Math.round(5 + Math.random() * (-5 - 5));
-                    dps.push({
-                        x: xVal,
-                        y: yVal
-                    });
-                    xVal++;
-                }
-
-                if (dps.length > dataLength) {
-                    dps.shift();
-                }
-
-                chart.render();
-            };
-
-            updateChart(dataLength);
-            setInterval(function () { updateChart() }, updateInterval);
-
-        }
+      
     </script>
 
 </body>

@@ -3,541 +3,475 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="refresh" content="10">
+ 
   <link rel="stylesheet" type="text/css" href="/css/dashboard.css">
-  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-  <script>
-    window.onload = function () {
-      var chart = new CanvasJS.Chart("chartContainer", {
-        title: {
-
-        },
-        axisY: [{
-          title: "Temp",
-          lineColor: "#C24642",
-          tickColor: "#C24642",
-          labelFontColor: "#C24642",
-          titleFontColor: "#C24642",
-          includeZero: true,
-          suffix: "° C"
-        },
-        {
-          title: "Humidity",
-          lineColor: "#369EAD",
-          tickColor: "#369EAD",
-          labelFontColor: "#369EAD",
-          titleFontColor: "#369EAD",
-          includeZero: true,
-          suffix: "g.m^3"
-        }],
-        axisY2: {
-          title: "Smoke",
-          lineColor: "#7F6084",
-          tickColor: "#7F6084",
-          labelFontColor: "#7F6084",
-          titleFontColor: "#7F6084",
-          includeZero: true,
-          prefix: " ",
-          suffix: "[mg/m^3]"
-        },
-        toolTip: {
-          shared: true
-        },
-        legend: {
-          cursor: "pointer",
-          itemclick: toggleDataSeries
-        },
-        data: [{
-          type: "line",
-          name: "Humidity",
-          color: "#369EAD",
-          showInLegend: true,
-          axisYIndex: 1,
-          dataPoints: [
-            { x: new Date(2017, 00, 7), y: 85.4 },
-            { x: new Date(2017, 00, 14), y: 92.7 },
-            { x: new Date(2017, 00, 21), y: 64.9 },
-            { x: new Date(2017, 00, 28), y: 58.0 },
-            { x: new Date(2017, 01, 4), y: 63.4 },
-            { x: new Date(2017, 01, 11), y: 69.9 },
-            { x: new Date(2017, 01, 18), y: 88.9 },
-            { x: new Date(2017, 01, 25), y: 66.3 },
-            { x: new Date(2017, 02, 4), y: 82.7 },
-            { x: new Date(2017, 02, 11), y: 60.2 },
-            { x: new Date(2017, 02, 18), y: 87.3 },
-            { x: new Date(2017, 02, 25), y: 98.5 }
-          ]
-        },
-        {
-          type: "line",
-          name: "Temp",
-          color: "#C24642",
-          axisYIndex: 0,
-          showInLegend: true,
-          dataPoints: [
-            { x: new Date(2017, 00, 7), y: 32.3 },
-            { x: new Date(2017, 00, 14), y: 33.9 },
-            { x: new Date(2017, 00, 21), y: 26.0 },
-            { x: new Date(2017, 00, 28), y: 15.8 },
-            { x: new Date(2017, 01, 4), y: 18.6 },
-            { x: new Date(2017, 01, 11), y: 34.6 },
-            { x: new Date(2017, 01, 18), y: 37.7 },
-            { x: new Date(2017, 01, 25), y: 24.7 },
-            { x: new Date(2017, 02, 4), y: 35.9 },
-            { x: new Date(2017, 02, 11), y: 12.8 },
-            { x: new Date(2017, 02, 18), y: 38.1 },
-            { x: new Date(2017, 02, 25), y: 42.4 }
-          ]
-        },
-        {
-          type: "line",
-          name: "Smoke",
-          color: "#7F6084",
-          axisYType: "secondary",
-          showInLegend: true,
-          dataPoints: [
-            { x: new Date(2017, 00, 7), y: 42.5 },
-            { x: new Date(2017, 00, 14), y: 44.3 },
-            { x: new Date(2017, 00, 21), y: 28.7 },
-            { x: new Date(2017, 00, 28), y: 22.5 },
-            { x: new Date(2017, 01, 4), y: 25.6 },
-            { x: new Date(2017, 01, 11), y: 45.7 },
-            { x: new Date(2017, 01, 18), y: 54.6 },
-            { x: new Date(2017, 01, 25), y: 32.0 },
-            { x: new Date(2017, 02, 4), y: 43.9 },
-            { x: new Date(2017, 02, 11), y: 26.4 },
-            { x: new Date(2017, 02, 18), y: 40.3 },
-            { x: new Date(2017, 02, 25), y: 54.2 }
-          ]
-        }]
-      });
-      chart.render();
-
-      function toggleDataSeries(e) {
-        if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
-          e.dataSeries.visible = false;
-        } else {
-          e.dataSeries.visible = true;
-        }
-        e.chart.render();
-      }
-
-    }
-  </script>
+  
+ 
+  <link rel="icon" type="image/x-icon" href="/img/soul_logo.jpeg">
 
   <script src="https://kit.fontawesome.com/0a34c633c7.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" language="javascript">history.go(1)</script>
 </head>
 
 
 <body>
-  <div class="nav">
-    <img
-      src="https://media.licdn.com/dms/image/C560BAQE7WgnBeLm3Bg/company-logo_200_200/0/1625720418766?e=2147483647&v=beta&t=KTUp1omXehd0PtjA2EDBLnVKgKIjIXW9JMvcwT67TFk"
-      width="60">
-
-
-
-    <ul class="nav-links" type="none">
-      <!-- <i class="uil uil-times navCloseBtn" id="searchIcon"></i> -->
-      <li><a href="#"> Dashboard</a></li>
-      <li><a href="#"> Settings </a></li>
-      <li><a href="#"> Device Management </a> </li>
-      <li><a href="#"> Alert & Notification </a></li>
-      <li><a href="#"> Help</a></li>
-      <li><a href="http://localhost:7100/contact">Contact</a> </li>
-      <a href="#">
-        <button onclick="a()" class="button-62" id="logout-btn" role="button">Log out &nbsp;
-          <!-- <a href=" http://127.0.0.1:5501/reg.html#"> -->
-
-
-          <i class="fa-solid fa-right-from-bracket fa-beat-none"></i></button>
-      </a>
-
-
-      <!--imp-->
-      <button onclick="myFunction()" style="border-radius: 50%; width: 30px;height: 30px;"> <i
-          class="fa-solid fa-circle-half-stroke"  ></i></button>
-      <!-- -->
-      <!-- <li class="theme-container shadow-dark"> -->
-      <!-- <button onclick="myFunction()" class="theme-container shadow-dark">  -->
-      <!-- <img id="theme-icon" src="https://www.uplooder.net/img/image/2/addf703a24a12d030968858e0879b11e/moon.svg" alt="ERR">
-        </button> -->
-      <!-- </li>        -->
+  
+  <div class="example">
+    <div class="nav">
       <img
-        src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxISEhUREhIVFhUXFRcVFhcXGBgVGBgWGBUWGBkVGBUYHSggGRslGxgVITMhJSkrLi4uFx8zODMtNyguLisBCgoKDg0OGxAQGi0lICUtLS0tLS8tLTAtLTUtLy0tMi8vLS0tLS0tLS0tLS0tLy0tLS0tLS0tKy0tLS0tLS0tLf/AABEIAMEBBQMBIgACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAABAUBAgYDB//EAEYQAAIBAgMEBQgIBQIEBwAAAAECAwARBBIhBTFBUQYTImFxMkJSU4GRobEUFTNicsHR8AcjgpLhQ7IkY6LCFzQ1VHOD0v/EABsBAQADAQEBAQAAAAAAAAAAAAACAwQBBQYH/8QAPBEAAQMBBAYHBgUDBQAAAAAAAQACAxEEITFBEhNRYXGRMlKBocHR8AUUIjOSsSM0QnLhgsLxFUNTorL/2gAMAwEAAhEDEQA/APtVKUoiUpSiJSlKIlKUoiUpSiJSsMbanQVWNipJiUh0UaNKR8FHE/vSqZZmx0reTgBifWZJAGZCsjic/DAYnIet15UvF46OLy214Aak+yo4xE8n2cQRfSk3/wBoqRg9nJHqBmbi7asT+VTap0ZpOm7RGxuPa4+AHE5WVjZ0RU7T5edd4VWuzpT9piH8EAQfCh2JEfKLt4tVnWae6Q0o4V/cS7/0Su+8SZGnAAfaiqxsKHhmHg1ZOy7eTPMP6r1Z0oLHAOiwDhd9iE94l63O9VIgxKeTIsg5OLH3j8zWU2oAcsyNE3fqp8GFWtecsYYZWAI5HWuCF7PlPPB1XDv+LvoNi5rGu6bRxFx8u5YUgi41FZqsOCkiOaA3XeYmOh/CeB/fdUnBY1ZAbXDDylOhB8KsjtFXaDxouyGR/ac94uIzFL1F8VBpNNR3jiMuOG9SqUpWlUpSlKIlKUoiUpSiJSlKIlKUoiUpSiJSlKIlKUoiUpSiJWGYAXOgG+s1V4smaTqFNkXWUj4IP38qpnl1ba0qTcBtPq8nIAlWRR6Z2AXk7B65lagNiW4rAD4GQj8v3v3W0cYUBVAAGgApGgUBQLACwA5V6VCGHQq5xq44nwGxoyHaakkqUkmlcBQDAesSUrNYrNqvoqisUrNq1klVfKYDxIHzrtFxZpXj9Mi9Yn9w/WvVJFbcQfA3pRFms0tS1cIRYqux+z8x6yM5ZBuPPubnVjWarlibI3Rd63g4gjIjBWMkcw1aq7Z+N6wEMMsi6OvI8x3VMqBtPDNcTR/aJvHprxU/v8qk4TELIgddx+B4iq4ZHB2qkPxC8HrDbxGDt9DgQpSMBGmzA4jYfLZ/C9qUpWpUpSlKIlKUoiUpSiJSlKIlKUoiUpSiJSlKIlKUoii7SxXVxlh5XkqObHd+vsrbZmE6uMKfKPaY82O/9KizL1mIRfNiXOfxHd+Rq2rHGNZM6TJvwj+486N3aJ2rQ/4Iw3M3nwHj2pW1qAVpI4UFibAak1qWdb1yfSTpA4eOHCuoZixZyMwAUDQX0PjTa21WlOVbhOXFu8/pVNtPBPHJh3YWzGRQOPkg6jhU0Xqdu4hmEczWJ0Upoj92mt+41Oj2TM2vVn22X561Xzwq6lWFwf3cd9Tdl9IpMOBHiA0kQ0WUauo5SDj4j40ouLEeAkZzGF17WtxY5SoYA34ZhW8mzJk1MbeI1/2154Hb+FXFTTGVurZT1d2JF+zntF5SkkDhrY1ptXbUuLvHGGigPlMdJJByA81T8fhRFHTpBiSSkD3A0Z37QB5LfefhV90Z28ZFaPEMBKjlM1rK4sCDyB1qiiiCgKosBuFabLwbsk0oF1EzKbbxlVdbctfhRF9ErFczsnbBSySG6bgeK/qK6YG9cIXViqdP5M+XzJdV5BxvHt/MVckVX7ahzREjyk7anvXf8L1ltQcGaxuLbxv2jtFRxocQr4CNLQODrvI9h7qqXSvLDTZ0Vx5wB/xXrWkEEVGCpIINClKUrq4lKUoiUpSiJSlKIlKUoiUpSiJSlKIlKUJtrXRihVfscZmml9KTKPBd3zq2FVXRsfyFPMsf+oj8qtqxWE1s7HdYaX1fF4q+03SuGw05XeCxXMdIMfmbqlPZU697foPnV3tTE9XEzDfuXxP7v7K5bZyIZB1jqqjtNmIF7cNeZ/OtgVCuNhbMsBK413qDw+8e+oHTZ/5mFTjmkf2BLfnU7G9LMLHor9a3BYhnv/UOyPfXNxCfFYgyutmICADVYlY6Anzm3sba2U7ri3UXoqMwORS2W17W0JtYXJ3m403m+gqcuzcq3nZo2N8qhC+4E2LLmB0BNhu76sI8IqNHCl3yh9L9Wgk7O8rvYgyGxzNrc860xGzs73VFYAFHKKqAG48i5uzDcbtbuJBWuIuVwkUBxUltLqAtirsrAgMzKq3YHQgKL6DdckXWK2c9s+HDTKL3BXq2Fr3tmsGN+FhVXgMJhmxJsm8myCJg0YJURSZ2Fmz3GhsBn7hbpsJgSrHMiKzWyqQLMFHCQdpX5glrDdmteuoqIgjQgg2vY8uY4Ed4q36CP/KmXiMRJ7mCkH5+6tpcCJlkjDMjBy0YY5xmAXMUY6kZ8wNjxNxwqhwOKmwkxlEZIdV62MHyl8yaM8dL6eI7wqiv9u7LC/zUHZ84cu8d1enR3aH+ix/Afmte2E6SYSYW61QToUk7B7xZt/svVFiU6uQ5GBsQysDfTeDcfvSiLuK0Zb6cDXlhJxIiuOIv4HiPfUiooqfYYyxsh8yRk+N/zNWNV2zjaacffB996sazWKgga0ZVb9JLfBX2n5pO2h5gHxSlKVqVCUpSiJSlKIlKUoiUpSiJSlKIlKUoiVhxofA1mgroxQqH0cP/AA6f1f72qzqp2ALRunoSMvs/d6tqw2CossYOTQOQp4K+1fPfxJ5mq4XppI5xCRSOVgKXUKcoL3IOY+H731XpsyEf6a+3X51fdK0DSZWAIyDQ+LVWtsWaKJZYbyxkXaM6uveh84fd31uVC8woUaKB3AAVfYPDFIVjW5ZXaSVl3+W6kLzbLmA4gINxtXPQyhwrIbjOh9gcEi3OwItXX4F8vbPkSnrA27KzblbkCuWx535ihRbzxq4WKPQWD5lNsq8CpHnMb2PLN7cYvrEiKZQwIEalLKRmIQdk6C194PsFYwUDAGWMgdYS5RvJsfJsRqhy5b7xe+lzetsRiGzRho2HbJNrODZH3WObflOoG6uIqfByl8TOmSe5RlkGVAi2KiEo2muQsd/yq4UPPGMw6sEC9jdww324IQw36+yqvZ2Jb6TKxVu15QyNoBpGbWuCRz3691WmEle7qqWAcm7kDywHuFW5OrHQ28aqilEgJAIvIv3GnLYrJIyw0JyBu3rze3V9SQOsBCrbTW3ZlXiBa5J7mGvGs2/CciDz4b3+9Dl1butlBPIryIvbyRCN1mZrk9h2OgCtqLDcAGCj+o3vvqFtlGeNpACLo0CCxuVmGW5HC8nVeAXhcirVWuclgRvKVT4gGorbJh35Ld4JH517tiQqKzcQLAakkjQAcTUmbYkpiMs5yLcWhB1IJ/1G/wC0VJcUzoJLITMgcvCpXIW1OY3zAHiP3zrsa5vooAC6gWFlsBu0JrpKgcV1U+A/8xiD3oPcpqxqu2RqZn9KVreA3fOrGs1jH4IO0uPNzj4q+0/MpsAHIAeCUpStSoSlKURKUpREpSlESlKURKUpREpSlESlZIrz61fSHvFdoihYTsYiReEihx4jQ/n7qt6ptrLYJOmpja5txQ+UP331aRSBgGGoIBHgaxwfA58Z26Q4OJPc7SG4U2q+X4mtfuoeI/ii53pQn8xTzT5E/rVtsJ7wJ3XHuJ/xUbpNBeNX9E6+Df5tXh0XxHlRn8Q+R/KtmSoVH0ni+jYnrIxpIhlKj1kRDMQOZFvbXSyHq4WiPk9WRE28EFbBCeY3DmLbzeud29iRNjDbVYEyX/5jat7hYeNTdmYq2HeFtVRd28rHfQ24pbQ8VtyIsRdAsDJpGeyPMa9h3K29R43HK1RMdjyjBmjYERyW3MCbxgajUC5GpA317B8likyFSLhXa+n3ZN9u85qg4/GKSFdSQYpAerZG3tFquoJPsqDq6JpipsbVwqLqqpwuOZJOtJuT5f3gd+ndbTwA3V0aTsZXyRsQUQ3bsC95Ab37W7L5vCuVhGq5lbLpnCqb24gfvdXS/WF5AVCi6Hy5EA0YegW514vsHX6p+ur0q31BvxN9MT31W/2i0Vbojbh3etlFB2diBPh5Jy2Yh5WC+aCjkpp5xsE392le+3sTeFpAeytjGb26yXMMlvu3trxOu4a83sHBSQriYZdYsrFMrBg7AWuFU3YZbXvoLC9Wu38QWYIx1WzMBqE07K34t5xPCygbzf1rM5zowXChz7LlntrGMncGGrcRwN/cvHofgVklkmYXEJEMQ4AhQXa3PUCrzpM9ogObD4AmqbofiQk80B06y0yd5tlceOgPvqT0lxGaQIPNGvif8W99X5rKvfosn2h/CPnVvj58kbvyGnjuHxtUXYEGWEHixLew6D4Ae+vPap62RIBuvnk/CNw9v6VntL3MYS3pG5vE3DsrjuqrYWBzwHYYngMV67IgyRIDvtmPi2tTKwWHMVkMOYq2KIRsbG3AAAdlyg9+m4uOZrzSlKVJRSlKURKUpREpSlESlKURKUpRFE2ji+rUELmJYKBewueZrxGGxEnlSiMejGNf7jXrtXD9ZEyjfa48Rr/j217bOxPWRq/Ma+I0PxrDI3Tn0Hk0oCADStD8VaUJpVudKEXLSx2jFpNArWhJFeGN19+VblGOw4j5Zdz95j+VbjYuH9WPe361YCthUvcbLWpiaTvaD96qJtU3XPNVT7BgO5SPBm/M1KweFES5QzEXuM1tL8NBuqZSpR2SCJ2lGwNO4AfZRfNI8Uc4kbzVeU8QdSp3EWNcJtGeTCt2ftQ2VO8ncfC2td/XM9LNkzSPFNCiuUDhlJCk5rWIJ00199agqlQ4SDIoW9zvY8WY6lj7a9TfgSDYi45EWI7xbhUQLOxs2WIX1sM7jnvsL10eA6L4V1DM8s34nKgHllS1vCpLig7QxKSAMEVJibPuCsLE5s3nHTcdRc8NarwWzamK3Aa34b2vb4Vf47odCReBnhcbiGZlJ+8rE6eFq5uIOHZJMyyRnLIoa45qyhtCCNb14XtD2WJnumDa3C4BpJpd+ph+9F6lktjWNEbuZwHf4KTr/wAv+6tFZrm5itwtcW8Tc3+FZ67QEOTfcAVvr7K8oYJJJBDGT1jXZmJJWNL+UQNL7gAN5ryrHYI7WCWNIAzLYwOFzDfets9pENNLPLP7q5GORYOqiXtuCJH0Nib3sbdsi9hwHstUD9SSTqSTqSTxN6u8P0OwwH8wySN6TOw9wUgCo20ujsES5knljPBc3WA/0vr8RX10TQxgaBgAPWH2C8F7tJxdtKpcUrDLLHpJGc6HnzU9xGlTNkXxTKw87tOeWva+OnuqDGMRcKEWQnQZSUJ9huPjXUdEdlSYdJDKFVpJC2UHNlFtxPjfdUyoK+RbCw3DQVVvsRGZndnJbfqAPCwG721bVmqJYY5aabQabfXq/arGSPZ0TRVY2FB6F/6m/WsNsGD0CPBm/WrWtDVH+n2T/hZ9LfJWe9T9d31HzVWdkZfs5ZE7r5h7q8ZsTNALyZZFuBmHZbXu3VdVU7RbPLFENwPWP4DcPn7xVU8IiZWElrrgKE0qTTo9HebgaVvVkUpkdSShF5NQK3X43HvVkaUpXpFZEpSlESlKURKVCxG1IkOUEu3ooMx/SvEYnEP5Maxjm5ufcN1ZXWyEHRBqdjRWnGlw7SFcLPIRUig33KzpVYmDmby8Q3ggC/GtxsscZZj/AF/4qItMjsIyOJb4FylqWDF/IE+SsKq4j1ExQ/ZyG6ngr8R7f0r0+q+Usw/qv+VeGK2ZKyleuDjk66+IYXN6qnkmcAWxnSBqKEEbwakGhFRgaXGlQrI2xgkF4ocbiO0Y3g8NivKCqjZ88iARzKRbRX3qe5iNx7zv+dtWqGUSN0gCNxuI4j0DiKi9Z3sLDQ8xgVvSlKtVaxSs1iuoqvamyFl7S9l/gfH9a568sD8Ub4EfIiu1rzmhVxlZQRyNdqipcN0iG6Rfav6GqXpZJGWjxMTC/wBlINQcreS2vom/91X2J6PIdUYr3HtD9arMZ0akZWS6kEW32PjqKEVBC600IKppQiqW0HEEW5XFXHRKeKKJppGHWTNmIAJIQaIundr/AFVR/VOKc/RzA4bc8h+zy8Srbrty8a6GLo5JoCUUDTeTp7q8/wBm2N9ljLZH6RJ33DLG+/E5A4LRap2ykFopT13KRi+kJ3Rrb7zf/kVVxQyzvpdjxJ3DxPDwq9w3R+NdXJc/2j3DX41axxhRZQAOQ0FehVZlC2ZstYRfe53t+Q5CrClK4iVmlK4iVpWxrxmlCi7Gw+fcBxPdXCQBUroFVpisQsaF23Ae/uHfULZULdqZ/LkN7cl80fvuqJicPPO4bKERTdQ/zKjj3GpY2dKfLxL/ANICfKvP1r5Jg7VuIb0cBfhpXkHC4XYVOYWvQa2PR0wCcc+y67eb8bslYUqv+qV9ZN/f/isHZpHkzzD+q/wrRr5R/t/9h40Veqj6/cVY0qsEOITdKr9zrb4ig2k6fbRMB6Sdof4rgtrB02lvEVHNpcB2kJ7u49Eg8PI07lZ0qPh8dE4urg/AjxBpWlr2uFWkEcVQWkGhBVbs5BHJJEBqDmU8Sp7+NtKsxUPbERGWZR2k3jmnH3fmakQShlDA3BFxXmRt1TjCcrxwOHLo9gOa2POm0SbceI87ivcVsK0FbCtbVQQtxWwrUVkVYFFb1hRbQUpUworcVmtK3FSUUrFaSOACSbAC5PIDjXzjaW2sRj5vo+FzLHrqDlzKNCztvC93fxNUzTiIC6pOA2rVZbI60E0IAF5JwC+gSY6JTlaVAeRZQfcTUhSDqK4OH+HIy9rEHN91dB72ufhVdPh8Zstw6vniJtpfI33WQ+Q3ePfwqk2mRnxSR0G0EGi1NsNnlOjBNV2wgivAr6fWuccxUHY20kxMSzJuO8cVYb1PhXC7L/8AW2/+Sb/Y9XSzhmgReHEDHbmqILGZNYHGhYCaU2ZYinFfSSbUDA7jXz7p1tVppVwEOvaGcDix8lPAbz3+FdVsfAR4LDZSQAoLytuu1u03hpYdwFGT6chYBcMTXPZ/K5JZNXA2Rx+J2DaZbSa55CnfUC4rF6+aYra2L2jKYsNmjjHI5bL6Urjn6I9xterHZXQV4pY5nnBKOrkBSQcrA2zE/G1VNtTnn8NhI21pyqr32COFv48oa6ldGhJ4GmC7ksBvIrevnn8VvKw3/wBnzSu7wn2afhX5CrmTaUjmU6NO2qzTWYRwRzVrp1uphQ0xrfyCkUpWpq1ZVitcovfjW1KFdCVqaGtTUCpLBrU1k1g1W5SC1NaGtzVdtSY2EaeXJ2R3Dj8KyyyBjdI/52DtNAN5CujbpOp639yjYbAJO0khNlzWW2l7bz8qVdYaBY0VAdALfr8aVKL2bAGDWxhzsSaHE3nPkoSWyXSOrcQ3IL0IqmQdRJkP2Tm6H0T6J/f51dV5YmBZFKMLg/u4760WmAyAObc4YHwO4576HJQikDCQ7A4+Y3j+FgVsKq4pWgIjlN03JJ+TcqsxWaKQOqKUIxBxHrI4EXq57C3gcDtXoKyK0FbitIKpK2FbV5ithViitqUpUgVFUnTScpgpmXeVC+xnVT8CarP4aYVVwzSaZnkIJ42UAAe/MfbXQbYwIngkh3Z0IB5NvU+wgVw3QvbQwrvhcR2AXuC2gV9FIbkCANd2nfWOUhlpa52FCBuP+F6tnaZLBJHHe4OBIzIu8fBfSqr9tYZZcPKjbijewgXB8QQD7KmI4IuCCDuI1Fcp006RxxRPDGwaVwVNjfIp3kkbjbcN+t60zPaxhL8FgssT5Zmtjxry3qv/AIXTkidOAKMPEhgfgq+6qTGYxoNozyoLspmI46lWFz3C9/ZXXfw+2U0MBkcWaUhgOIS3Zv43Y+0Vz+BQNtllIBBecEcCDHJcGvMLHCGEHHSHfUr3myMdarS8Co0T20F/Onipv8N8AjGTEs2aTMVAOpXMLlz3tc69x5mrb+IkxXBkDz3VT4at/wBormcUkmysYHQEwvuHNL6p+JeHs5mux29hBjMGwjIbMokjPMjUDuvqO69XRCsDoQPiFajbv7VntJAtkdpJrG4gg7KZdnq+qi/w/wAMqYRGAGaQuzHnZmUD2BR8a6ivnPQnpEsAOFxByWYlGbQKSdUb0dbm55m9fQY5VYXVgQdxBBHwrTZHtfE0NyCwe0opI7Q8vGJJB2j+MNy4D+KvlYfwk+aV3uE+zT8C/IVwX8VfKw/hJ80ru8Kewn4F+QqEH5iX+n7K21/krP8A1/dSCa1pesVrXmhZrFZrQmoqSGtTWawarK6sGtTWTUbF4pY1zMbD4k8gKpke1oLiaAKbQSaBMViFjUsx0HxPIV47Lw7EmeQdtvJHorwHjXnhcM0rCWUWUapGf9zd9W1Rs8RleJXigHRH9x2XXNBwxN9KTkeGNLGm84nwHjySlKV6CypSlKItJolcFWAIO8GqicPhhmVg0W7Ix7Q/CeP78at5pQqlmNgBc1U4VTK/XyDT/TXgPvHv/fKvOt+iSA35mR2DMna2v6TcTTZUa7MSAS7oZjafA78lY4eTMoaxFxex0Newrn9uY2YzQ4PDuI3lWSV5SocxxRFFORDoXZpEAvcAZjY6CtE2hNgkkbGydbErRLFMqDrXMrZMjxRi2YOV7SgXD7tNbW1VRxXSCtga52bpbAgu0c4yosk14m/4dGvYz+joCSBcgamw1r1x3SiCJ2QrKyxlBLIiFo4i4UqHYdzKTYGwYE2FWiqir6tq5KHpG7z4iJs0QixsOHRuqzB1eOJihJbQszN2huUqbVMwXSzDyyJGoltJI8SSNGyxtLHnLxBz5wEbnkcpF76VNRXQ1Rbd6MwYrtNdJLWDra/gw3MPj31pguluHlliiUS/z2cQSGNhHL1aM7Mj7stlNibZtCLjWpe1dtpA6x5JZZGVnEcSZ2yIVDOdQAAWUam5voDXHMa8aLhUKccr43BzDQrkT0ExK9lMSuTxdP8ApAI+NWuxOg0MJDyt1rDULayA8yupb26d1W+M2sGwMmLga4OHeaMkW/0yykq3fbQ1W7J23LjJUSB16qEJ9LksGLzNGG+jxjcLXDM3DRRrfLQyxwtNQOZJWyT2papG6JdjjQAE9oXV3rlsJ0XZMacZ1gILO2TKb9sMLZr8L8qkbO6W4eZ40USgS5hFI8bJG7ICXRXPnAKx5HK1ibGvNOmeGKl7TBOrkljcxMFnSJczmE+d2RmANiw1FxrV742vppZGo4rJFO+IODD0gQbhgeKsOkGyUxURibQ70a18rDcfDgRyNROjGxpcIrRtKJEJuvZKlTxtqdDy5+Ne2K6S4aNpkZ9YcOMVJYE/yjm1HM9k6d451Eh6RBBJ1od3OKkhhjjTNIwVA+Ww00GYliQBz3UMTS8SUvXRaJBEYa/CTWlBju2di3290Uw+KOc3STiyW1/Ep0Pjoe+qfZvQRoZo5RiLhGV7ZCCcpBtfNV23SrD5I2QSyNK0irEkbGUGI2lzIbZch0N+JAFyRev2P0tVoInkEkskr4lkSKIl+pixDoJGTQqFXqwb6km1idKrfZYXu0i2/wBbFdH7QtMbNW15phS4/cKd0q6ODGhP5mRkzWNswIa1wRcchXO/+Hb/APuh/Yf1roR0sw7JE8SzS9ajSosUTM/VKQpkZdMouRYHU8AbGvTbe1rbOnxmHcNbCSzxPa4NoWdGsd40GhqMtkikdpObf2qUHtG0ws0I3UA3A/cKx2ZhuqijjJzFEVL2tfKLXtUuqna2OMeEaYydWRGGLhOsykga9XcZt+6o+w9stPPjImRlEE4iQlSAV6mJ9STq2ZmOluyVq8CgoFjLi4knEq8NYNcTtPb2KGFkSJk+mDGTYeO63BCB8SgZbbzhlXXm16mydKU60SZ/+HXBxTsFXOzviZMsCpluSxCOAo3lxUSlV05rU1QydLMOsbvIsyGN443iaM9aGlNo7It8wY6ArcE3G8EVFw/ScAztKsgAlhjhi6v+cWkw8cnVZB59y5NzoAbkAVAgqQKuNpY8xWAW5bQE6KD31vhdndrPM2d+Hor+EfnVR0e2mcZ9LEinImJMSKy5GVRBCxVgdbh2fXwtpY1Y4CYxP1Lm6n7Jjy9A/v8AKsR0RODLeDhsB3jA1/S7I0F1QtAJMX4dxz2kbuGYzF+VFbUpSvWWJKUpREpSlEVRtZuskSDh5b+A3D991TFqqGKQTTM7AHNlF+S6VIG0IvTFeCLQx0j3ucKkkYjBtw8TxJXpOicGhoBuG/E3ny7FC23hZlngxkEfWtGssUkWZUZ4pcjEozdnOrxobEgEFtd1QMbhsdilLPH1a/SME0WHLRsypDiUkllkdSRmZRogY2CDiTV+NoxesFbjaUPrFrU21R9ZvMeaoML+qeRXJbe6PyHEYllw004xIUoUxcmHiRhEsTJPGkqZo7KGuodiCy20FeHSTYWMlXExCGaXsqMKVxPVYdI1jjBRousBeXOsls6sDmW7Abu2G04fWLWRtOH1i1Y21R9ZvMeaiYH9U8iucm2ViDiZ7RXjfH4XFLJmSxRIoY3XLfMGUxk7tQRa9e2H2NMIcGjLYx4yaWTtL2Y3GMAYG+p/mx6DXXuNX/1pD6xafWkPrFqwWmLrt5jzUdQ/qnkVxOx5pg2yMOY0MUTOFnSRXWZI8BiI0ljVdVQgjNmtZmUDNvq96T4TESTR2jnlw/VsCkGIGGtMXFnlcOjmPL6JNteybipWBw+z4ZHmhjgjke+d0RVZrm5uwF9Tr41Y/WkHrVqXvMXXH1DzXNTJ1TyKptnbKmTZIwjKBMMI8WUMCM5RlADE7iSNSeOteOD2C+EkwsuFiUDqo8NiolKqDGASsoubF43Ld7K7bzar/wCtIPWrWfrSD1q133mLrt+oeaamTqnkVzGG2BP9H2dCy2MMkpm7SnIr4bFRgjXtdqVN3Os7O2dipTgocRhxGmEB6yTOjJM30aTDBYVViwQiRmOcLawFje46b61g9atPrWD1q095i67fqHmuamTqnkVwOC6IYsDDlxd+u6nEEsp/4OMYcK2h1zjBx6C5HXtpvqw2t0emLicwyyBcViGMcM5w8rRTJGA6SLImoZB2GYXBPEAV131rB61afWkHrVp7zF128x5pqX9U8iuU2dsifDNBio8IxIGKSTDifrZQJ5IXRzNPJldx1Khhnt2za9tfLZMGKwrxMYY3maPF9ZhxKisqvjDMsqO1g0Q6yzcRmTS+ldh9awetWoG1Y8BiQq4hYZgpuokUPYnfa40rvvMPXb9Q801MnVPIrjdnbJkeLDYzqJpw+FyFMLimwxVhNLIrhutjEkbdYRckkWUgG5rp8TseQbJlwaRqJWwcsQjV2ZRI8TjIJJTcjM1szGrePaOHACiRAAAABoABuAFtBW31nB61aibTF12/UPNd1EnVPIrmsecZicJLhTgHiJgyqzTQMGcFBlsjki4ubnTs+FWuxsLLHicaXjIjlmSaOTMpDD6PDEyZb5gQ0R3ixBFqn/WkHrFrH1pD6xaibTF1hzHmu6mTqnkVTRbHlG02nyj6OY+tBuLnFMqQHs77CGMa/fqpwHRvExYeQZEMkeKibDpcAPhcK69UhbzSUz2vuLC/Guu+tIfWLWDtOH1i1E2qLrt5hd1D+qeRXLz7MxOImbFNAYrzYALE7xs4iw07yvK5RigJ61rKCTZBxNhttHZGIGIfFJHnyYyOdEDKDLH9C+juFLGysCzEZiActri966Q7Th9YtanaUPrFqo2qPrDmPNS1L9h5FVfRiCZTipZ4uqM2J61EzK5CfR4IxmKEjN/LNxzvYkWJstoQ50NvKHaU8rVg7Ri9YK1baEXp1nmmieCC4UO8eaujjkaQQDyKn7OxPWxq/Eix8Roak1UbBlBMqqbrnDA8O1fT4Vb16Vjm1sDXk1OBO8XHvCy2iMMkLRh53pSlK0qlKUpRFyHSD7dvZ8qrqUr8/wDaH5qT9x+6+ms3yWcAlKUrIrkpSlcRKUpREpSlESlKURKUpRdSlKURKUpRcSlKURKUpREpSlESlKV1EpSlEXU9Gfsj+I/lVvSlff8As78pF+0fZfNWr5z+KUpStioX/9k="
+        src="https://media.licdn.com/dms/image/C560BAQE7WgnBeLm3Bg/company-logo_200_200/0/1625720418766?e=2147483647&v=beta&t=KTUp1omXehd0PtjA2EDBLnVKgKIjIXW9JMvcwT67TFk"
         width="60">
-    </ul>
-    <!--imp-->
 
 
-    <!---->
-  </div>
 
-  <div class="scroll">
-    <% if(data) { %>
-      <a href="/sensor5" class="c">
-        <div class="card">
-          <div class="container">
-
-            <span><b>DEVICE ID:</b>
-              <%= data[4].device_id %>
-            </span>
-            <p><b>DEVICE TYPE:</b>
-              <%= data[4].device_type %>
-            </p>
-            <p><b>DATA:</b>
-            <table class="table">
-              <tr>
-                <th>Device Smoke</th>
-                <th>Device Temperature</th>
-                <th> Device Humidity</th>
-              </tr>
-              <tr>
-                <td id="mq5">
-                  <%= data[4].device_mq2 %>
-                </td>
-                <td id="temp5">
-                  <%= data[4].device_temp %>
-                </td>
-                <td id="humidity5">
-                  <%= data[4].device_hum %>
-                </td>
-              </tr>
-            </table>
-            </p>
-            <span id="status4"><b>STATUS:</b>
-              <%= data[4].device_heartbeat_status %>
-            </span>
-
+      <ul class="nav-links" type="none">
+        <li>
+          <div class="schoolname">
+            <h2>
+              <% if(data10) { %>
+                <%= data10[0].school_name %>
+                  <% }%>
+              </h2>        
           </div>
+        </li>
+        <!-- <i class="uil uil-times navCloseBtn" id="searchIcon"></i> -->
+        <li><a href="http://localhost:7100/school/?scID=<%=sch%>"> Dashboard</a></li>
+        <li><a href="/soon"> Settings </a></li>
+        <li><a href="/soon"> Device Management </a> </li>
+        <li><a href="/soon"> Alert & Notification </a></li>
+        <!-- <li><a href="#"> Help</a></li> -->
+        <li><a href="/contact">Help</a> </li>
+        <a href="/logout">
+          <button onclick="a()" class="button-62" id="logout-btn" role="button">Log out &nbsp;
+
+
+
+            <i class="fa-solid fa-right-from-bracket fa-beat-none"></i></button>
+        </a>
+
+
+        <!--imp-->
+        <button onclick="myFunction()" style="border-radius: 50%; width: 30px;height: 30px;"> <i
+            class="fa-solid fa-circle-half-stroke"  ></i></button>
+
+            <img src="/img/okcl.jpeg" alt="okcl"  width="60px">
+
+      </ul>
+
+    </div>
+
+    <div class="scroll">
+      <% if(data) { %>
+        <a href="/sensor5" class="c">
+          <div class="card">
+            <div class="container">
+
+              <span><b>DEVICE ID:</b>
+                <%= data[4].device_id %>
+              </span>
+              <p><b>DEVICE TYPE:</b>
+                <%= data[4].device_type %>
+              </p>
+              <p><b>DATA:</b>
+              <table class="table">
+                <tr>
+                  <th>Device Smoke</th>
+                  <th>Device Temperature</th>
+                  <th> Device Humidity</th>
+                </tr>
+                <tr>
+                  <td id="mq5">
+                    <%= data[4].device_mq2 %>
+                  </td>
+                  <td id="temp5">
+                    <%= data[4].device_temp %>
+                  </td>
+                  <td id="humidity5">
+                    <%= data[4].device_hum %>
+                  </td>
+                </tr>
+              </table>
+              </p>
+              <span id="status4"><b>STATUS:</b>
+                <%= data[4].device_heartbeat_status %>
+              </span>
+
+            </div>
+          </div>
+
+        </a>
+
+        <a href="/sensor6" class="c">
+          <div class="card">
+            <div class="container">
+
+              <span><b>DEVICE ID:</b>
+                <%= data[5].device_id %>
+              </span>
+              <p><b>DEVICE TYPE:</b>
+                <%= data[5].device_type %>
+              </p>
+              <p><b>DATA:</b>
+              <table class="table">
+                <tr>
+                  <th>Device Smoke</th>
+                  <th>Device Temperature</th>
+                  <th> Device Humidity</th>
+                </tr>
+                <tr>
+                  <td id="mq6">
+                    <%= data[5].device_mq2 %>
+                  </td>
+                  <td id="temp6">
+                    <%= data[5].device_temp %>
+                  </td>
+                  <td id="humidity6">
+                    <%= data[5].device_hum %>
+                  </td>
+                </tr>
+              </table>
+              </p>
+              <span id="status5"><b>STATUS:</b>
+                <%= data[5].device_heartbeat_status %>
+              </span>
+
+            </div>
+          </div>
+
+        </a>
+
+        <a href="/sensor1" class="c">
+
+          <div class="card">
+            <div class="container">
+
+              <span><b>DEVICE ID:</b>
+                <b>
+                  <%= data[0].device_id %>
+                </b>
+              </span>
+              <p><b>DEVICE TYPE:</b>
+                <b>
+                  <%= data[0].device_type %>
+                </b>
+              </p>
+              <p><b>DATA:</b>
+              <table class="table">
+                <tr>
+                  <th>Device Smoke</th>
+                  <th>Device Temperature</th>
+                  <th> Device Humidity</th>
+                </tr>
+                <tr>
+                  <td id="mq1">
+                    <%= data[0].device_mq2 %>
+                  </td>
+                  <td id="temp1">
+                    <%= data[0].device_temp %>
+                  </td>
+                  <td id="humidity1">
+                    <%= data[0].device_hum %>
+                  </td>
+                </tr>
+              </table>
+              </p>
+              <span class="status"><b>STATUS:</b>
+                <%= data[0].device_heartbeat_status %>
+              </span>
+
+            </div>
+          </div>
+
+
+        </a>
+        <a href="/sensor2" class="c">
+          <div class="card">
+            <div class="container">
+
+              <span><b>DEVICE ID:</b>
+                <%= data[1].device_id %>
+              </span>
+              <p><b>DEVICE TYPE:</b>
+                <%= data[1].device_type %>
+              </p>
+              <p><b>DATA:</b>
+              <table class="table">
+                <tr>
+                  <th>Device Smoke</th>
+                  <th>Device Temperature</th>
+                  <th> Device Humidity</th>
+                <tr>
+                  <td id="mq2">
+                    <%= data[1].device_mq2 %>
+                  </td>
+                  <td id="temp2">
+                    <%= data[1].device_temp %>
+                  </td>
+                  <td id="humidity2">
+                    <%= data[1].device_hum %>
+                  </td>
+                </tr>
+              </table>
+              </p>
+              <span id="status1"><b>STATUS:</b>
+                <%= data[1].device_heartbeat_status %>
+              </span>
+
+            </div>
+          </div>
+
+        </a>
+
+        <a href="/sensor3" class="c">
+          <div class="card">
+            <div class="container">
+
+              <span><b>DEVICE ID:</b>
+                <%= data[2].device_id %>
+              </span>
+              <p><b>DEVICE TYPE:</b>
+                <%= data[2].device_type %>
+              </p>
+              <p><b>DATA:</b>
+              <table class="table">
+                <tr>
+                  <th>Device Smoke</th>
+                  <th>Device Temperature</th>
+                  <th> Device Humidity</th>
+                </tr>
+                <tr>
+                  <td id="mq3">
+                    <%= data[2].device_mq2 %>
+                  </td>
+                  <td id="temp3">
+                    <%= data[2].device_temp %>
+                  </td>
+                  <td id="humidity3">
+                    <%= data[2].device_hum %>
+                  </td>
+                </tr>
+              </table>
+              </p>
+              <span id="status2"><b>STATUS:</b>
+                <%= data[2].device_heartbeat_status %>
+              </span>
+
+            </div>
+          </div>
+
+        </a>
+
+        <a href="/sensor4" class="c">
+          <div class="card">
+            <div class="container">
+
+              <span><b>DEVICE ID:</b>
+                <%= data[3].device_id %>
+              </span>
+              <p><b>DEVICE TYPE:</b>
+                <%= data[3].device_type %>
+              </p>
+              <p><b>DATA:</b>
+              <table class="table">
+                <tr>
+                  <th>Device Smoke</th>
+                  <th>Device Temperature</th>
+                  <th> Device Humidity</th>
+                </tr>
+                <tr>
+                  <td id="mq4">
+                    <%= data[3].device_mq2 %>
+                  </td>
+                  <td id="temp4">
+                    <%= data[3].device_temp %>
+                  </td>
+                  <td id="humidity4">
+                    <%= data[3].device_hum %>
+                  </td>
+                </tr>
+              </table>
+              </p>
+              <span id="status3"><b>STATUS:</b>
+                <b>
+                  <%=data[3].device_heartbeat_status %>
+                </b>
+              </span>
+
+            </div>
+          </div>
+
+        </a>
+
+
+
+
+        <% } %>
+    </div>
+    <div class="status">
+      <div class="status-1">
+        <h1> CURRENT DOOR STATUS</h1>
+         <br>
+         <br>
+         <button class="button-75" role="button"><span class="text">     <h1>
+          <% if(data11) { %>
+          <%= (data11[0].connection_status) %>
+          <%}%>
+                
+               </h1></span></button>
+ 
+      </div>
+      <div class="status-2">
+        
+        
+        <h1> CURRENT AVERAGE DEVICE STATUS</h1>
+        
+        <% var c=0 %>
+  <% for(let i=0;i<data.length;i++) { %>
+    <% if( data[i].device_heartbeat_status=='Offline') { %>
+     <% c=c+1 %> 
+      <% } %>
+   <% } %>
+   <% if(c>0) { %>
+    <br>
+    <br>
+     <h1>Disconnected</h1>
+     <h1>🔴</h1> 
+      <% } else{ %>  
+      
+    <h1>Connected</h1>
+    <h1 >🟢</h1>
+<% } %></div>
+    </div>
+
+    <div class="device">
+      <div class="device-1">
+        <h2 class="h2">Door Opened</h2>
+        <div class="btn">
+          <h1>
+            
+            <% if(data2) { %>
+              <%=Object.values(data2[0]) %>
+                <% } %>
+          </h1>
         </div>
 
-      </a>
 
-      <a href="/sensor6" class="c">
-        <div class="card">
-          <div class="container">
 
-            <span><b>DEVICE ID:</b>
-              <%= data[5].device_id %>
-            </span>
-            <p><b>DEVICE TYPE:</b>
-              <%= data[5].device_type %>
-            </p>
-            <p><b>DATA:</b>
-            <table class="table">
-              <tr>
-                <th>Device Smoke</th>
-                <th>Device Temperature</th>
-                <th> Device Humidity</th>
-              </tr>
-              <tr>
-                <td id="mq6">
-                  <%= data[5].device_mq2 %>
-                </td>
-                <td id="temp6">
-                  <%= data[5].device_temp %>
-                </td>
-                <td id="humidity6">
-                  <%= data[5].device_hum %>
-                </td>
-              </tr>
-            </table>
-            </p>
-            <span id="status5"><b>STATUS:</b>
-              <%= data[5].device_heartbeat_status %>
-            </span>
 
-          </div>
+      </div>
+
+
+      <div class="device-1">
+        <h2 class="h2">Door Closed</h2>
+
+        <div class="btn">
+          <h1>
+            <% if(data3 ) { %>
+
+              <%=Object.values(data3[0]) %>
+                <% } %>
+          </h1>
         </div>
 
-      </a>
+      </div>
 
-      <a href="/sensor1" class="c">
 
-        <div class="card">
-          <div class="container">
+      <div class="device-1">
+        <h2 class="h2">Forced Opened</h2>
 
-            <span><b>DEVICE ID:</b>
-              <b>
-                <%= data[0].device_id %>
-              </b>
-            </span>
-            <p><b>DEVICE TYPE:</b>
-              <b>
-                <%= data[0].device_type %>
-              </b>
-            </p>
-            <p><b>DATA:</b>
-            <table class="table">
-              <tr>
-                <th>Device Smoke</th>
-                <th>Device Temperature</th>
-                <th> Device Humidity</th>
-              </tr>
-              <tr>
-                <td id="mq1">
-                  <%= data[0].device_mq2 %>
-                </td>
-                <td id="temp1">
-                  <%= data[0].device_temp %>
-                </td>
-                <td id="humidity1">
-                  <%= data[0].device_hum %>
-                </td>
-              </tr>
-            </table>
-            </p>
-            <span class="status"><b>STATUS:</b>
-              <%= data[0].device_heartbeat_status %>
-            </span>
+        <div class="btn">
+          <h1>
+            <% if(data1) { %>
 
-          </div>
+              <%=Object.values(data1[0]) %>
+                <% } %>
+          </h1>
         </div>
 
+      </div>
 
-      </a>
-      <a href="/sensor2" class="c">
-        <div class="card">
-          <div class="container">
 
-            <span><b>DEVICE ID:</b>
-              <%= data[1].device_id %>
-            </span>
-            <p><b>DEVICE TYPE:</b>
-              <%= data[1].device_type %>
-            </p>
-            <p><b>DATA:</b>
-            <table class="table">
-              <tr>
-                <th>Device Smoke</th>
-                <th>Device Temperature</th>
-                <th> Device Humidity</th>
-              <tr>
-                <td id="mq2">
-                  <%= data[1].device_mq2 %>
-                </td>
-                <td id="temp2">
-                  <%= data[1].device_temp %>
-                </td>
-                <td id="humidity2">
-                  <%= data[1].device_hum %>
-                </td>
-              </tr>
-            </table>
-            </p>
-            <span id="status1"><b>STATUS:</b>
-              <%= data[1].device_heartbeat_status %>
-            </span>
+      <div class="device-1">
+        <h2 class="h2">Open From Inside</h2>
 
-          </div>
+        <div class="btn">
+          <h1>
+
+            <% if(data4) { %>
+              <%=Object.values(data4[0]) %>
+                <% } %>
+          </h1>
         </div>
 
-      </a>
-
-      <a href="/sensor3" class="c">
-        <div class="card">
-          <div class="container">
-
-            <span><b>DEVICE ID:</b>
-              <%= data[2].device_id %>
-            </span>
-            <p><b>DEVICE TYPE:</b>
-              <%= data[2].device_type %>
-            </p>
-            <p><b>DATA:</b>
-            <table class="table">
-              <tr>
-                <th>Device Smoke</th>
-                <th>Device Temperature</th>
-                <th> Device Humidity</th>
-              </tr>
-              <tr>
-                <td id="mq3">
-                  <%= data[2].device_mq2 %>
-                </td>
-                <td id="temp3">
-                  <%= data[2].device_temp %>
-                </td>
-                <td id="humidity3">
-                  <%= data[2].device_hum %>
-                </td>
-              </tr>
-            </table>
-            </p>
-            <span id="status2"><b>STATUS:</b>
-              <%= data[2].device_heartbeat_status %>
-            </span>
-
-          </div>
+      </div>
+    </div>
+    <div class="door">
+      <div class="door-1">
+        <h2 class="h3">Door Open</h2>
+        <div class="btn1">
+          <h1>
+            <% if(data5) { %>
+              <%=Object.values(data5[0]) %>
+                <% } %>
+          </h1>
         </div>
+        <h2 class="h3">Day-wise</h2>
 
-      </a>
 
-      <a href="/sensor4" class="c">
-        <div class="card">
-          <div class="container">
+      </div>
+      <div class="door-1">
+        <h2 class="h3">Door Open</h2>
+        <div class="btn1">
+          <h1>
+            <% if(data6) { %>
 
-            <span><b>DEVICE ID:</b>
-              <%= data[3].device_id %>
-            </span>
-            <p><b>DEVICE TYPE:</b>
-              <%= data[3].device_type %>
-            </p>
-            <p><b>DATA:</b>
-            <table class="table">
-              <tr>
-                <th>Device Smoke</th>
-                <th>Device Temperature</th>
-                <th> Device Humidity</th>
-              </tr>
-              <tr>
-                <td id="mq4">
-                  <%= data[3].device_mq2 %>
-                </td>
-                <td id="temp4">
-                  <%= data[3].device_temp %>
-                </td>
-                <td id="humidity4">
-                  <%= data[3].device_hum %>
-                </td>
-              </tr>
-            </table>
-            </p>
-            <span id="status3"><b>STATUS:</b>
-              <b>
-                <%=data[3].device_heartbeat_status %>
-              </b>
-            </span>
-
-          </div>
+              <%=Object.values(data6[0]) %>
+                <% } %>
+          </h1>
         </div>
-
-      </a>
-
+        <h2 class="h3">Week-wise</h2>
 
 
 
-      <% } %>
-  </div>
-
-  <div class="device">
-    <div class="device-1">
-      <h2 class="h2">Door Opened</h2>
-      <div class="btn">
-        <h1>
-          <% if(data2) { %>
-            <%=Object.values(data2[0]) %>
-              <% } %>
-        </h1>
       </div>
+      <div class="door-1">
+        <h2 class="h3">Door Open</h2>
+        <div class="btn1">
+          <h1>
+            <% if(data7) { %>
 
+              <%=Object.values(data7[0]) %>
+                <% } %>
+          </h1>
+        </div>
+        <h2 class="h3">Month-wise</h2>
 
-
-
-    </div>
-
-
-    <div class="device-1">
-      <h2 class="h2">Door Closed</h2>
-
-      <div class="btn">
-        <h1>
-          <% if(data3 ) { %>
-
-            <%=Object.values(data3[0]) %>
-              <% } %>
-        </h1>
-      </div>
-
-    </div>
-
-
-    <div class="device-1">
-      <h2 class="h2">Forced Opened</h2>
-
-      <div class="btn">
-        <h1>
-          <% if(data1) { %>
-
-            <%=Object.values(data1[0]) %>
-              <% } %>
-        </h1>
-      </div>
-
-    </div>
-
-
-    <div class="device-1">
-      <h2 class="h2">Open From Inside</h2>
-
-      <div class="btn">
-        <h1>
-
-          <% if(data4) { %>
-            <%=Object.values(data4[0]) %>
-              <% } %>
-        </h1>
-      </div>
-
-    </div>
-  </div>
-  <div class="door">
-    <div class="door-1">
-      <h2 class="h3">Door Open</h2>
-      <div class="btn1">
-        <h1>
-          <% if(data5) { %>
-            <%=Object.values(data5[0]) %>
-              <% } %>
-        </h1>
-      </div>
-      <h2 class="h3">Day-wise</h2>
-
-
-    </div>
-    <div class="door-1">
-      <h2 class="h3">Door Open</h2>
-      <div class="btn1">
-        <h1>
-          <% if(data6) { %>
-
-            <%=Object.values(data6[0]) %>
-              <% } %>
-        </h1>
-      </div>
-      <h2 class="h3">Week-wise</h2>
-
-
-
-    </div>
-    <div class="door-1">
-      <h2 class="h3">Door Open</h2>
-      <div class="btn1">
-        <h1>
-          <% if(data7) { %>
-
-            <%=Object.values(data7[0]) %>
-              <% } %>
-        </h1>
-      </div>
-      <h2 class="h3">Month-wise</h2>
-
-    </div>
-  </div>
-  <div class="graph">
-    <div class="graph-1">
-      <h1>Door Count(open)</h1>
-      <div class="gr1">
-        <canvas id="myChart"></canvas>
       </div>
     </div>
-    <div class="graph-1">
-      <h1>Door Count(close)</h1>
-      <div class="gr2">
-        <canvas id="myChart13"></canvas>
+    <div class="graph">
+      <div class="graph-1">
+        <h1>Door Count(open)</h1>
+        <%var on=on%>
+          <%var ti=ti%>
+          <div class="gr1">
+        <canvas id="myChart2"></canvas>
+        <h3> Time</h3>
       </div>
-    </div>
+      </div>
+      <div class="graph-1">
+        <h1>Door Count(close)</h1>
+        <%var cl=cl%>
+          <%var tl=tl%>
+            <div class="gr2">
+              <canvas id="myChart3"></canvas>
+            </div>
+            <h3> Time</h3>
+                
+      </div>
+      </div>
 
+    
   </div>
 
   <script>
@@ -713,79 +647,16 @@
       <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
       <script>
 
-        var ctx12 = document.getElementById('myChart13').getContext('2d');
-        var myChart = new Chart(ctx12, {
+        const ctx2 = document.getElementById('myChart2');
+
+        let chart2 = new Chart(ctx2, {
           type: 'line',
           data: {
-            labels: ['Jan', 'Feb', 'Mar', 'April', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            labels: [],
             datasets: [{
-              label: 'No of Closed Door Count ',
-              data: [2, 1, 3, 5, 2, 3, 1, 2, 3, 3, 2, 1],
-              backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-              ],
-              borderColor: [
-                'red',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-              ],
-              borderWidth: 1
-            }]
-          },
-          options: {
-            scales: {
-              y: {
-                beginAtZero: true
-              }
-            }
-          }
-        });
-        function updateChart() {
-          chart.data.datasets[3].data = [1, 170, 30, 50, 220, 3, 14, 19, 31, 5, 2, 3];
-          chart.update();
-
-        };
-      </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
-      <script>
-
-        var ctx6 = document.getElementById('myChart').getContext('2d');
-        var myChart = new Chart(ctx6, {
-          type: 'line',
-          data: {
-            labels: ['Jan', 'Feb', 'Mar', 'April', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-            datasets: [{
-              label: 'No of Open Door ',
-              data: [2, 1, 3, 5, 2, 3, 1, 2, 3, 3, 2, 1],
-              backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-              ],
+              label: 'Open Count',
+              data: [],
+              borderWidth: 1,
               borderColor: [
                 'green',
                 'rgba(54, 162, 235, 1)',
@@ -794,23 +665,103 @@
                 'rgba(153, 102, 255, 1)',
                 'rgba(255, 159, 64, 1)'
               ],
-              borderWidth: 1
+
             }]
           },
-          options: {
-            scales: {
-              y: {
-                beginAtZero: true
-              }
-            }
-          }
-        });
-        function updateChart() {
-          chart.data.datasets[3].data = [1, 170, 30, 50, 220, 3, 14, 19, 31, 5, 2, 3];
-          chart.update();
 
-        };
+        });
+
+        function chartIt2() {
+          console.log('<%=typeof(on.slice(-1)[0])%>');
+          console.log('<%=ti.slice(-1)%>')
+          console.log('<%= on.slice(-1) %>')
+          chart2.data.labels = ['<%=ti[ti.length-10]%>',
+            '<%=ti[ti.length-9]%>',
+            '<%=ti[ti.length-8]%>',
+            '<%=ti[ti.length-7]%>',
+            '<%=ti[ti.length-6]%>',
+            '<%=ti[ti.length-5]%>',
+            '<%=ti[ti.length-4]%>',
+            '<%=ti[ti.length-3]%>',
+            '<%=ti[ti.length-2]%>',
+            '<%=ti.slice(-1)%>'];
+          chart2.data.datasets[0].data = ['<%=on[on.length-10]%>',
+            '<%=on[on.length-9]%>',
+            '<%=on[on.length-8]%>',
+            '<%=on[on.length-7]%>',
+            '<%=on[on.length-6]%>',
+            '<%=on[on.length-5]%>',
+            '<%=on[on.length-4]%>',
+            '<%=on[on.length-3]%>',
+            '<%=on[on.length-2]%>',
+            '<%=on.slice(-1)%>'];
+          chart2.update();
+        }
+        // chart1.data.labels = b[0];
+        //                 chart1.data.datasets[0].data = a[0];
+        //                 chart1.update();
+        chartIt2(chart2);
+
+
+
+
+        //chart for door close
+        const ctx3 = document.getElementById('myChart3');
+
+        let chart3 = new Chart(ctx3, {
+          type: 'line',
+          data: {
+            labels: [],
+            datasets: [{
+              label: 'Close Count',
+              data: [],
+              borderWidth: 1,
+              borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+              ],
+            }]
+          },
+
+        });
+
+        function chartIt3() {
+          console.log('<%=typeof(cl.slice(-1)[0])%>');
+          console.log('<%=tl.slice(-1)%>')
+          console.log('<%= cl.slice(-1) %>')
+          chart3.data.labels = ['<%=tl[tl.length-10]%>',
+            '<%=tl[tl.length-9]%>',
+            '<%=tl[tl.length-8]%>',
+            '<%=tl[tl.length-7]%>',
+            '<%=tl[tl.length-6]%>',
+            '<%=tl[tl.length-5]%>',
+            '<%=tl[tl.length-4]%>',
+            '<%=tl[tl.length-3]%>',
+            '<%=tl[tl.length-2]%>',
+            '<%=tl.slice(-1)%>'];
+          chart3.data.datasets[0].data = ['<%=cl[cl.length-10]%>',
+            '<%=cl[cl.length-9]%>',
+            '<%=cl[cl.length-8]%>',
+            '<%=cl[cl.length-7]%>',
+            '<%=cl[cl.length-6]%>',
+            '<%=cl[cl.length-5]%>',
+            '<%=cl[cl.length-4]%>',
+            '<%=cl[cl.length-3]%>',
+            '<%=cl[cl.length-2]%>',
+            '<%=cl.slice(-1)%>'];
+          chart3.update();
+        }
+        // chart1.data.labels = b[0];
+        //                 chart1.data.datasets[0].data = a[0];
+        //                 chart1.update();
+        chartIt3(chart3);
       </script>
+   
+  
 
 </body>
 

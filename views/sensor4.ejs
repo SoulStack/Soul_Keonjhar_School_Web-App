@@ -5,18 +5,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/img/okcl.jpeg">
+    <meta http-equiv="refresh" content="10">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="css/sensor1.css" </head>
+    <link rel="stylesheet" type="text/css" href="css/sensor1.css"> </head>
+    
 
 <body>
     <div class="nav">
         <img src="https://media.licdn.com/dms/image/C560BAQE7WgnBeLm3Bg/company-logo_200_200/0/1625720418766?e=2147483647&v=beta&t=KTUp1omXehd0PtjA2EDBLnVKgKIjIXW9JMvcwT67TFk"
             width="60">
-        <a href="http://localhost:7100/school/?scID=<%=sch%>"class="triangle-left"></a>
-        <a href="" class="triangle-right"></a>
+        
         <ul class="nav-links" type="none">
             <!-- <i class="uil uil-times navCloseBtn" id="searchIcon"></i> -->
-            <li><a href="#"> Dashboard</a></li>
+            <li><a href="http://localhost:7100/school/?scID=<%=sch%>"> Dashboard</a></li>
             <li><a href="#"> Admin Settings </a></li>
             <li><a href="#"> Device Management </a> </li>
             <li><a href="#"> Alert & Notification </a></li>
@@ -166,7 +168,15 @@
           datasets: [{
             label: 'smoke',
             data: [],
-            borderWidth: 1
+            borderWidth: 1,
+            borderColor: [
+                       'green',
+             'green',
+             'rgba(255, 206, 86, 1)',
+             'rgba(75, 192, 192, 1)',
+             'rgba(153, 102, 255, 1)',
+             'rgba(255, 159, 64, 1)'
+           ],
           }]
         },
        
@@ -261,7 +271,15 @@
           datasets: [{
             label: 'Temperature Usage',
             data: [],
-            borderWidth: 1
+            borderWidth: 1,
+             borderColor: [
+                       'red',
+             'red',
+             'rgba(255, 206, 86, 1)',
+             'rgba(75, 192, 192, 1)',
+             'rgba(153, 102, 255, 1)',
+             'rgba(255, 159, 64, 1)'
+           ],
           }]
         },
        

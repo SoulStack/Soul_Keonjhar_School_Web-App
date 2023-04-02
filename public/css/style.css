@@ -208,3 +208,11 @@ button:hover{
 #error {
   color: red;
 } 
+
+.okcl-logo{
+	margin-top: -48%;
+	margin-right: 2%;
+	float: right;
+	position: sticky;
+
+}
